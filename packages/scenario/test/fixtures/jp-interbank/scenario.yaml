@@ -1,0 +1,22 @@
+# Test fixture: a scenario in a zero-decimal currency with four banks, kept to
+# prove the engine hard-codes no currency or participant count (SPEC.md §1).
+id: jp-interbank
+name: Yen interbank transfers (test fixture)
+currencies: [JPY]
+timeZone: Asia/Tokyo
+calendar:
+  weekend: [saturday, sunday]
+participants:
+  - { id: central-bank, name: Central Bank, kind: central-bank, currency: JPY, validator: true }
+  - { id: bank-a, name: Bank A, kind: bank, reserves: [JPY], validator: true }
+  - { id: bank-b, name: Bank B, kind: bank, reserves: [JPY], validator: true }
+  - { id: bank-c, name: Bank C, kind: bank, reserves: [JPY], validator: true }
+  - { id: bank-d, name: Bank D, kind: bank, reserves: [JPY] }
+instruments:
+  wholesale:
+    - { symbol: wJPY, issuer: central-bank, currency: JPY }
+  deposits:
+    - { symbol: dJPY-A, issuer: bank-a, currency: JPY }
+    - { symbol: dJPY-B, issuer: bank-b, currency: JPY }
+    - { symbol: dJPY-C, issuer: bank-c, currency: JPY }
+    - { symbol: dJPY-D, issuer: bank-d, currency: JPY }

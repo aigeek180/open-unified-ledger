@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 766" width="960" height="766" role="img" aria-labelledby="t d">
+<title id="t">What runs, and on which open projects</title>
+<desc id="d">Each institution runs its own stack. The Central Bank and Banks A, B and C each run a participant service (Node 24, TypeScript, Fastify, viem) with a signer (a local key or AWS KMS), books in their own Postgres 17 schema with the reconciler, and a Hyperledger Besu 26.9.0 validator; each bank also runs a Paladin v1.0.0 node with Noto deposits for confidential mode. The four validators form the shared Besu QBFT ledger, which carries the SettlementEngine, ERC-7943 cash tokens and the project's own ERC-3643 bond, built on OpenZeppelin Contracts v5.7.0 and compiled with solc 0.8.37. Interop mode adds a second Besu network and a coordinator. Tooling: Docker Compose, Foundry, Anvil, vitest, the conformance kit, the Next.js 16 console and ISO 20022 XSD validation.</desc>
+<style>
+.bg{fill:#ffffff}
+.frame{stroke:#d1d9e0;stroke-width:1}
+text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;fill:#1f2328}
+.mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace}
+.muted{fill:#59636e}
+.faint{fill:#818b98}
+.panel{fill:#f6f8fa;stroke:#d1d9e0;stroke-width:1}
+.card{fill:#ffffff;stroke:#d1d9e0;stroke-width:1}
+.rule{stroke:#d1d9e0;stroke-width:1;fill:none}
+.rule-dash{stroke:#d1d9e0;stroke-width:1.5;fill:none;stroke-dasharray:4 4}
+.on-solid{fill:#ffffff}
+.text-fill{fill:#1f2328}
+.muted-line{stroke:#59636e;stroke-width:1.5;fill:none}
+.muted-mark{fill:#59636e}
+.blue-box{fill:#ddf4ff;stroke:#0969da;stroke-width:1.5}
+.blue-soft{fill:#ddf4ff}
+.blue-ink{fill:#0a3069}
+.blue-solid{fill:#0969da}
+.blue-line{stroke:#0969da;stroke-width:1.75;fill:none}
+.blue-dash{stroke:#0969da;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.blue-stroke{fill:#0969da}
+.blue-edge{fill:none;stroke:#0969da;stroke-width:1.5}
+.green-box{fill:#dafbe1;stroke:#1a7f37;stroke-width:1.5}
+.green-soft{fill:#dafbe1}
+.green-ink{fill:#116329}
+.green-solid{fill:#1a7f37}
+.green-line{stroke:#1a7f37;stroke-width:1.75;fill:none}
+.green-dash{stroke:#1a7f37;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.green-stroke{fill:#1a7f37}
+.green-edge{fill:none;stroke:#1a7f37;stroke-width:1.5}
+.amber-box{fill:#fff8c5;stroke:#9a6700;stroke-width:1.5}
+.amber-soft{fill:#fff8c5}
+.amber-ink{fill:#6c3b00}
+.amber-solid{fill:#9a6700}
+.amber-line{stroke:#9a6700;stroke-width:1.75;fill:none}
+.amber-dash{stroke:#9a6700;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.amber-stroke{fill:#9a6700}
+.amber-edge{fill:none;stroke:#9a6700;stroke-width:1.5}
+.violet-box{fill:#fbefff;stroke:#8250df;stroke-width:1.5}
+.violet-soft{fill:#fbefff}
+.violet-ink{fill:#512a97}
+.violet-solid{fill:#8250df}
+.violet-line{stroke:#8250df;stroke-width:1.75;fill:none}
+.violet-dash{stroke:#8250df;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.violet-stroke{fill:#8250df}
+.violet-edge{fill:none;stroke:#8250df;stroke-width:1.5}
+.red-box{fill:#ffebe9;stroke:#cf222e;stroke-width:1.5}
+.red-soft{fill:#ffebe9}
+.red-ink{fill:#82071e}
+.red-solid{fill:#cf222e}
+.red-line{stroke:#cf222e;stroke-width:1.75;fill:none}
+.red-dash{stroke:#cf222e;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.red-stroke{fill:#cf222e}
+.red-edge{fill:none;stroke:#cf222e;stroke-width:1.5}
+.slate-box{fill:#f6f8fa;stroke:#818b98;stroke-width:1.5}
+.slate-soft{fill:#f6f8fa}
+.slate-ink{fill:#1f2328}
+.slate-solid{fill:#59636e}
+.slate-line{stroke:#818b98;stroke-width:1.75;fill:none}
+.slate-dash{stroke:#818b98;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.slate-stroke{fill:#818b98}
+.slate-edge{fill:none;stroke:#818b98;stroke-width:1.5}
+</style>
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="blue-stroke"/></marker><marker id="as-blue" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="blue-stroke"/></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="green-stroke"/></marker><marker id="as-green" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="green-stroke"/></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="amber-stroke"/></marker><marker id="as-amber" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="amber-stroke"/></marker><marker id="ah-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="violet-stroke"/></marker><marker id="as-violet" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="violet-stroke"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="red-stroke"/></marker><marker id="as-red" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="red-stroke"/></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="slate-stroke"/></marker><marker id="as-slate" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="slate-stroke"/></marker><marker id="ah-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="muted-mark"/></marker><marker id="as-muted" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="muted-mark"/></marker></defs>
+<rect class="bg frame" x="0.5" y="0.5" width="959" height="765" rx="12"/>
+<text x="24" y="36" font-size="22" font-weight="700">What runs, and on what</text>
+<text x="24" y="60" font-size="14" class="muted">Every institution runs its own stack; every piece is an open project, at the version the repo pins</text>
+<rect x="24" y="84" width="172" height="330" rx="12" class="blue-soft"/>
+<rect x="24" y="84" width="172" height="330" rx="12" class="blue-edge"/>
+<text x="36" y="108" font-size="15" class="blue-ink" font-weight="700">Central Bank</text>
+<rect x="34" y="122" width="152" height="64" rx="8" class="card"/>
+<text x="46" y="142" font-size="13" font-weight="700">Participant service</text>
+<text x="46" y="160" font-size="12.5" class="muted">Node 24, TypeScript,</text>
+<text x="46" y="177" font-size="12.5" class="muted">Fastify, viem</text>
+<rect x="34" y="194" width="152" height="47" rx="8" class="card"/>
+<text x="46" y="214" font-size="13" font-weight="700">Signer</text>
+<text x="46" y="232" font-size="12.5" class="muted">local key or AWS KMS</text>
+<rect x="34" y="249" width="152" height="47" rx="8" class="card"/>
+<text x="46" y="269" font-size="13" font-weight="700">Books + reconciler</text>
+<text x="46" y="287" font-size="12.5" class="muted">Postgres 17 schema</text>
+<rect x="34" y="304" width="152" height="47" rx="8" class="slate-dash"/>
+<text x="46" y="324" font-size="13" class="muted">No Paladin node</text>
+<text x="46" y="342" font-size="12.5" class="muted">deploys its registry</text>
+<rect x="34" y="359" width="152" height="47" rx="8" class="slate-box"/>
+<text x="46" y="379" font-size="13" font-weight="700">Besu 26.9.0</text>
+<text x="46" y="397" font-size="12.5" class="muted">QBFT validator</text>
+<line x1="110" y1="414" x2="110" y2="432" class="muted-line"/>
+<rect x="206" y="84" width="172" height="330" rx="12" class="green-soft"/>
+<rect x="206" y="84" width="172" height="330" rx="12" class="green-edge"/>
+<text x="218" y="108" font-size="15" class="green-ink" font-weight="700">Bank A</text>
+<rect x="216" y="122" width="152" height="64" rx="8" class="card"/>
+<text x="228" y="142" font-size="13" font-weight="700">Participant service</text>
+<text x="228" y="160" font-size="12.5" class="muted">Node 24, TypeScript,</text>
+<text x="228" y="177" font-size="12.5" class="muted">Fastify, viem</text>
+<rect x="216" y="194" width="152" height="47" rx="8" class="card"/>
+<text x="228" y="214" font-size="13" font-weight="700">Signer</text>
+<text x="228" y="232" font-size="12.5" class="muted">local key or AWS KMS</text>
+<rect x="216" y="249" width="152" height="47" rx="8" class="card"/>
+<text x="228" y="269" font-size="13" font-weight="700">Books + reconciler</text>
+<text x="228" y="287" font-size="12.5" class="muted">Postgres 17 schema</text>
+<rect x="216" y="304" width="152" height="47" rx="8" class="card"/>
+<rect x="216" y="304" width="152" height="47" rx="8" class="slate-dash"/>
+<text x="228" y="324" font-size="13" font-weight="700">Paladin v1.0.0</text>
+<text x="228" y="342" font-size="12.5" class="muted">Noto · confidential</text>
+<rect x="216" y="359" width="152" height="47" rx="8" class="slate-box"/>
+<text x="228" y="379" font-size="13" font-weight="700">Besu 26.9.0</text>
+<text x="228" y="397" font-size="12.5" class="muted">QBFT validator</text>
+<line x1="292" y1="414" x2="292" y2="432" class="muted-line"/>
+<rect x="388" y="84" width="172" height="330" rx="12" class="green-soft"/>
+<rect x="388" y="84" width="172" height="330" rx="12" class="green-edge"/>
+<text x="400" y="108" font-size="15" class="green-ink" font-weight="700">Bank B</text>
+<rect x="398" y="122" width="152" height="64" rx="8" class="card"/>
+<text x="410" y="142" font-size="13" font-weight="700">Participant service</text>
+<text x="410" y="160" font-size="12.5" class="muted">Node 24, TypeScript,</text>
+<text x="410" y="177" font-size="12.5" class="muted">Fastify, viem</text>
+<rect x="398" y="194" width="152" height="47" rx="8" class="card"/>
+<text x="410" y="214" font-size="13" font-weight="700">Signer</text>
+<text x="410" y="232" font-size="12.5" class="muted">local key or AWS KMS</text>
+<rect x="398" y="249" width="152" height="47" rx="8" class="card"/>
+<text x="410" y="269" font-size="13" font-weight="700">Books + reconciler</text>
+<text x="410" y="287" font-size="12.5" class="muted">Postgres 17 schema</text>
+<rect x="398" y="304" width="152" height="47" rx="8" class="card"/>
+<rect x="398" y="304" width="152" height="47" rx="8" class="slate-dash"/>
+<text x="410" y="324" font-size="13" font-weight="700">Paladin v1.0.0</text>
+<text x="410" y="342" font-size="12.5" class="muted">Noto · confidential</text>
+<rect x="398" y="359" width="152" height="47" rx="8" class="slate-box"/>
+<text x="410" y="379" font-size="13" font-weight="700">Besu 26.9.0</text>
+<text x="410" y="397" font-size="12.5" class="muted">QBFT validator</text>
+<line x1="474" y1="414" x2="474" y2="432" class="muted-line"/>
+<rect x="570" y="84" width="172" height="330" rx="12" class="green-soft"/>
+<rect x="570" y="84" width="172" height="330" rx="12" class="green-edge"/>
+<text x="582" y="108" font-size="15" class="green-ink" font-weight="700">Bank C</text>
+<rect x="580" y="122" width="152" height="64" rx="8" class="card"/>
+<text x="592" y="142" font-size="13" font-weight="700">Participant service</text>
+<text x="592" y="160" font-size="12.5" class="muted">Node 24, TypeScript,</text>
+<text x="592" y="177" font-size="12.5" class="muted">Fastify, viem</text>
+<rect x="580" y="194" width="152" height="47" rx="8" class="card"/>
+<text x="592" y="214" font-size="13" font-weight="700">Signer</text>
+<text x="592" y="232" font-size="12.5" class="muted">local key or AWS KMS</text>
+<rect x="580" y="249" width="152" height="47" rx="8" class="card"/>
+<text x="592" y="269" font-size="13" font-weight="700">Books + reconciler</text>
+<text x="592" y="287" font-size="12.5" class="muted">Postgres 17 schema</text>
+<rect x="580" y="304" width="152" height="47" rx="8" class="card"/>
+<rect x="580" y="304" width="152" height="47" rx="8" class="slate-dash"/>
+<text x="592" y="324" font-size="13" font-weight="700">Paladin v1.0.0</text>
+<text x="592" y="342" font-size="12.5" class="muted">Noto · confidential</text>
+<rect x="580" y="359" width="152" height="47" rx="8" class="slate-box"/>
+<text x="592" y="379" font-size="13" font-weight="700">Besu 26.9.0</text>
+<text x="592" y="397" font-size="12.5" class="muted">QBFT validator</text>
+<line x1="656" y1="414" x2="656" y2="432" class="muted-line"/>
+<rect x="24" y="432" width="718" height="140" rx="12" class="panel"/>
+<text x="40" y="458" font-size="15"><tspan font-weight="700">Shared ledger</tspan><tspan class="muted">  Hyperledger Besu 26.9.0 · QBFT · four validators · final at commit</tspan></text>
+<rect x="40" y="472" width="126.586" height="26" rx="6" class="slate-box"/>
+<text x="103.293" y="489.68" font-size="13" class="slate-ink" text-anchor="middle" font-weight="600">SettlementEngine</text>
+<rect x="174.586" y="472" width="161.312" height="26" rx="6" class="blue-box"/>
+<text x="255.242" y="489.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">ERC-7943 cash tokens</text>
+<rect x="343.898" y="472" width="173.163" height="26" rx="6" class="amber-box"/>
+<text x="430.48" y="489.68" font-size="13" class="amber-ink" text-anchor="middle" font-weight="600">our own ERC-3643 bond</text>
+<rect x="40" y="506" width="206.648" height="26" rx="6" class="slate-box"/>
+<text x="143.324" y="523.68" font-size="13" class="slate-ink" text-anchor="middle" font-weight="600">ConditionalSettlement, interop</text>
+<rect x="254.648" y="506" width="275.686" height="26" rx="6" class="slate-box"/>
+<text x="392.491" y="523.68" font-size="13" class="slate-ink" text-anchor="middle" font-weight="600">ConfidentialSettlement, confidential mode</text>
+<text x="40" y="556" font-size="13" class="muted">OpenZeppelin Contracts v5.7.0 · solc 0.8.37, Cancun · zero gas price; permissioned nodes and accounts</text>
+<rect x="760" y="84" width="176" height="488" rx="12" class="card"/>
+<rect x="760" y="84" width="176" height="488" rx="12" class="slate-dash"/>
+<text x="774" y="108" font-size="15" font-weight="700">Interop mode</text>
+<rect x="770" y="124" width="156" height="132" rx="10" class="slate-box"/>
+<text x="782" y="146.4" font-size="13" class="slate-ink" font-weight="600">Ledger 2</text>
+<text x="782" y="163.95" font-size="12.5">a second Besu 26.9.0</text>
+<text x="782" y="181.45" font-size="12.5">network sharing nothing</text>
+<text x="782" y="198.95" font-size="12.5">with ledger 1: its own</text>
+<text x="782" y="216.45" font-size="12.5">validator, registry and</text>
+<text x="782" y="233.95" font-size="12.5">ConditionalSettlement</text>
+<rect x="770" y="448" width="156" height="108" rx="10" class="card"/>
+<text x="782" y="470.4" font-size="13" class="slate-ink" font-weight="600">Coordinator</text>
+<text x="782" y="487.95" font-size="12.5">unified, HTLC or</text>
+<text x="782" y="505.45" font-size="12.5">notary 2PC, moving one</text>
+<text x="782" y="522.95" font-size="12.5">payment across both</text>
+<path d="M848 448 L848 260" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M770 502 L745 502" class="slate-line" marker-end="url(#ah-slate)"/>
+<text x="24" y="602" font-size="12" class="muted" font-weight="700">TOOLING</text>
+<rect x="24" y="614" width="297.68" height="28" rx="6" class="slate-box"/>
+<text x="172.84" y="632.68" font-size="13" class="slate-ink" text-anchor="middle">Docker Compose: networks, Paladin, Postgres</text>
+<rect x="329.68" y="614" width="182.63" height="28" rx="6" class="slate-box"/>
+<text x="420.995" y="632.68" font-size="13" class="slate-ink" text-anchor="middle">Foundry: forge, solc 0.8.37</text>
+<rect x="520.31" y="614" width="182.37" height="28" rx="6" class="slate-box"/>
+<text x="611.495" y="632.68" font-size="13" class="slate-ink" text-anchor="middle">Anvil: local chains for tests</text>
+<rect x="710.68" y="614" width="52.37" height="28" rx="6" class="slate-box"/>
+<text x="736.865" y="632.68" font-size="13" class="slate-ink" text-anchor="middle">vitest</text>
+<rect x="771.05" y="614" width="115.68" height="28" rx="6" class="slate-box"/>
+<text x="828.89" y="632.68" font-size="13" class="slate-ink" text-anchor="middle">conformance kit</text>
+<rect x="24" y="650" width="128.55" height="28" rx="6" class="slate-box"/>
+<text x="88.275" y="668.68" font-size="13" class="slate-ink" text-anchor="middle">Next.js 16 console</text>
+<rect x="160.55" y="650" width="266.48" height="28" rx="6" class="slate-box"/>
+<text x="293.79" y="668.68" font-size="13" class="slate-ink" text-anchor="middle">ISO 20022 XSD validation (xmllint-wasm)</text>
+<text x="24" y="708" font-size="13" class="muted">In the sandbox one Postgres container holds every participant's books, each in a schema of its own.</text>
+</svg>

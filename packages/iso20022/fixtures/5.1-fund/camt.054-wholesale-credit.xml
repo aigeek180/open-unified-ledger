@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.08">
+  <BkToCstmrDbtCdtNtfctn>
+    <GrpHdr>
+      <MsgId>OUL054-d2861567698a38fe4d5acaa9b145</MsgId>
+      <CreDtTm>2026-11-02T14:00:06Z</CreDtTm>
+    </GrpHdr>
+    <Ntfctn>
+      <Id>N054-d2861567698a38fe4d5acaa9b1451a</Id>
+      <CreDtTm>2026-11-02T14:00:06Z</CreDtTm>
+      <Acct>
+        <Id>
+          <Othr>
+            <Id>wholesale-outstanding/bank-a</Id>
+            <SchmeNm>
+              <Prtry>OUL</Prtry>
+            </SchmeNm>
+          </Othr>
+        </Id>
+        <Ccy>CAD</Ccy>
+        <Prxy>
+          <Tp>
+            <Prtry>EVM</Prtry>
+          </Tp>
+          <Id>0xf1494E585f886A6957d08029CeE3Eb6DBBd12b4a</Id>
+        </Prxy>
+        <Ownr>
+          <Nm>Bank A</Nm>
+        </Ownr>
+        <Svcr>
+          <FinInstnId>
+            <ClrSysMmbId>
+              <ClrSysId>
+                <Prtry>OUL</Prtry>
+              </ClrSysId>
+              <MmbId>central-bank</MmbId>
+            </ClrSysMmbId>
+            <Nm>Central Bank</Nm>
+          </FinInstnId>
+        </Svcr>
+      </Acct>
+      <Ntry>
+        <NtryRef>instruction:3f2b8c1e-9d4a-4b6f-8a2c</NtryRef>
+        <Amt Ccy="CAD">10000000.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Sts>
+          <Cd>BOOK</Cd>
+        </Sts>
+        <BookgDt>
+          <DtTm>2026-11-02T14:00:04Z</DtTm>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-11-02</Dt>
+        </ValDt>
+        <AcctSvcrRef>block-28</AcctSvcrRef>
+        <BkTxCd>
+          <Prtry>
+            <Cd>FUND</Cd>
+            <Issr>OUL</Issr>
+          </Prtry>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <Refs>
+              <EndToEndId>3f2b8c1e9d4a4b6f8a2c1e5d7f9b0c3a</EndToEndId>
+              <UETR>3f2b8c1e-9d4a-4b6f-8a2c-1e5d7f9b0c3a</UETR>
+            </Refs>
+            <Amt Ccy="CAD">10000000.00</Amt>
+            <CdtDbtInd>CRDT</CdtDbtInd>
+          </TxDtls>
+        </NtryDtls>
+      </Ntry>
+    </Ntfctn>
+  </BkToCstmrDbtCdtNtfctn>
+</Document>

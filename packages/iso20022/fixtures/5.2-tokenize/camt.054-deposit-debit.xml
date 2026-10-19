@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.08">
+  <BkToCstmrDbtCdtNtfctn>
+    <GrpHdr>
+      <MsgId>OUL054-4ea178121199b916a2b658007973</MsgId>
+      <CreDtTm>2026-11-02T14:30:04Z</CreDtTm>
+    </GrpHdr>
+    <Ntfctn>
+      <Id>N054-4ea178121199b916a2b658007973f0</Id>
+      <CreDtTm>2026-11-02T14:30:04Z</CreDtTm>
+      <Acct>
+        <Id>
+          <Othr>
+            <Id>dda/northwind-freight</Id>
+            <SchmeNm>
+              <Prtry>OUL</Prtry>
+            </SchmeNm>
+          </Othr>
+        </Id>
+        <Ccy>CAD</Ccy>
+        <Ownr>
+          <Nm>Northwind Freight</Nm>
+        </Ownr>
+        <Svcr>
+          <FinInstnId>
+            <ClrSysMmbId>
+              <ClrSysId>
+                <Prtry>OUL</Prtry>
+              </ClrSysId>
+              <MmbId>bank-a</MmbId>
+            </ClrSysMmbId>
+            <Nm>Bank A</Nm>
+          </FinInstnId>
+        </Svcr>
+      </Acct>
+      <Ntry>
+        <NtryRef>instruction:8c1d2e3f-4a5b-4c6d-9e7f</NtryRef>
+        <Amt Ccy="CAD">5000.00</Amt>
+        <CdtDbtInd>DBIT</CdtDbtInd>
+        <Sts>
+          <Cd>BOOK</Cd>
+        </Sts>
+        <BookgDt>
+          <DtTm>2026-11-02T14:30:02Z</DtTm>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-11-02</Dt>
+        </ValDt>
+        <AcctSvcrRef>block-30</AcctSvcrRef>
+        <BkTxCd>
+          <Prtry>
+            <Cd>TOKENIZE</Cd>
+            <Issr>OUL</Issr>
+          </Prtry>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <Refs>
+              <EndToEndId>8c1d2e3f4a5b4c6d9e7f0a1b2c3d4e5f</EndToEndId>
+              <UETR>8c1d2e3f-4a5b-4c6d-9e7f-0a1b2c3d4e5f</UETR>
+            </Refs>
+            <Amt Ccy="CAD">5000.00</Amt>
+            <CdtDbtInd>DBIT</CdtDbtInd>
+          </TxDtls>
+        </NtryDtls>
+      </Ntry>
+    </Ntfctn>
+  </BkToCstmrDbtCdtNtfctn>
+</Document>

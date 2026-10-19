@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 848" width="960" height="848" role="img" aria-labelledby="t d">
+<title id="t">Confidential mode: who sees what</title>
+<desc id="d">Each bank runs a Paladin node beside its validator and notarizes its deposit token as a Noto token. Northwind Freight's states live only on Bank A's node, Lakeside Steel's only on Bank B's; Bank C's node holds none of them. Bank A locks a burn, Bank B as notary locks a mint, both delegate their locks to ConfidentialSettlement, Bank B signs, and Bank A settles in one shared-ledger transaction that moves wCAD and spends both locks, or none. Validators see the wCAD leg in the clear, and for the deposits only state hashes and the notary's signature. A table compares what each participant could read in the baseline and in confidential mode, as pnpm confidential:compare measured it.</desc>
+<style>
+.bg{fill:#ffffff}
+.frame{stroke:#d1d9e0;stroke-width:1}
+text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;fill:#1f2328}
+.mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace}
+.muted{fill:#59636e}
+.faint{fill:#818b98}
+.panel{fill:#f6f8fa;stroke:#d1d9e0;stroke-width:1}
+.card{fill:#ffffff;stroke:#d1d9e0;stroke-width:1}
+.rule{stroke:#d1d9e0;stroke-width:1;fill:none}
+.rule-dash{stroke:#d1d9e0;stroke-width:1.5;fill:none;stroke-dasharray:4 4}
+.on-solid{fill:#ffffff}
+.text-fill{fill:#1f2328}
+.muted-line{stroke:#59636e;stroke-width:1.5;fill:none}
+.muted-mark{fill:#59636e}
+.blue-box{fill:#ddf4ff;stroke:#0969da;stroke-width:1.5}
+.blue-soft{fill:#ddf4ff}
+.blue-ink{fill:#0a3069}
+.blue-solid{fill:#0969da}
+.blue-line{stroke:#0969da;stroke-width:1.75;fill:none}
+.blue-dash{stroke:#0969da;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.blue-stroke{fill:#0969da}
+.blue-edge{fill:none;stroke:#0969da;stroke-width:1.5}
+.green-box{fill:#dafbe1;stroke:#1a7f37;stroke-width:1.5}
+.green-soft{fill:#dafbe1}
+.green-ink{fill:#116329}
+.green-solid{fill:#1a7f37}
+.green-line{stroke:#1a7f37;stroke-width:1.75;fill:none}
+.green-dash{stroke:#1a7f37;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.green-stroke{fill:#1a7f37}
+.green-edge{fill:none;stroke:#1a7f37;stroke-width:1.5}
+.amber-box{fill:#fff8c5;stroke:#9a6700;stroke-width:1.5}
+.amber-soft{fill:#fff8c5}
+.amber-ink{fill:#6c3b00}
+.amber-solid{fill:#9a6700}
+.amber-line{stroke:#9a6700;stroke-width:1.75;fill:none}
+.amber-dash{stroke:#9a6700;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.amber-stroke{fill:#9a6700}
+.amber-edge{fill:none;stroke:#9a6700;stroke-width:1.5}
+.violet-box{fill:#fbefff;stroke:#8250df;stroke-width:1.5}
+.violet-soft{fill:#fbefff}
+.violet-ink{fill:#512a97}
+.violet-solid{fill:#8250df}
+.violet-line{stroke:#8250df;stroke-width:1.75;fill:none}
+.violet-dash{stroke:#8250df;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.violet-stroke{fill:#8250df}
+.violet-edge{fill:none;stroke:#8250df;stroke-width:1.5}
+.red-box{fill:#ffebe9;stroke:#cf222e;stroke-width:1.5}
+.red-soft{fill:#ffebe9}
+.red-ink{fill:#82071e}
+.red-solid{fill:#cf222e}
+.red-line{stroke:#cf222e;stroke-width:1.75;fill:none}
+.red-dash{stroke:#cf222e;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.red-stroke{fill:#cf222e}
+.red-edge{fill:none;stroke:#cf222e;stroke-width:1.5}
+.slate-box{fill:#f6f8fa;stroke:#818b98;stroke-width:1.5}
+.slate-soft{fill:#f6f8fa}
+.slate-ink{fill:#1f2328}
+.slate-solid{fill:#59636e}
+.slate-line{stroke:#818b98;stroke-width:1.75;fill:none}
+.slate-dash{stroke:#818b98;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.slate-stroke{fill:#818b98}
+.slate-edge{fill:none;stroke:#818b98;stroke-width:1.5}
+</style>
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="blue-stroke"/></marker><marker id="as-blue" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="blue-stroke"/></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="green-stroke"/></marker><marker id="as-green" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="green-stroke"/></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="amber-stroke"/></marker><marker id="as-amber" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="amber-stroke"/></marker><marker id="ah-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="violet-stroke"/></marker><marker id="as-violet" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="violet-stroke"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="red-stroke"/></marker><marker id="as-red" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="red-stroke"/></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="slate-stroke"/></marker><marker id="as-slate" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="slate-stroke"/></marker><marker id="ah-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="muted-mark"/></marker><marker id="as-muted" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="muted-mark"/></marker></defs>
+<rect class="bg frame" x="0.5" y="0.5" width="959" height="847" rx="12"/>
+<text x="24" y="36" font-size="22" font-weight="700">Who sees what, in confidential mode</text>
+<text x="24" y="60" font-size="14" class="muted">Deposits become Paladin Noto tokens, private to the bank that issues them; the wholesale leg stays public</text>
+<rect x="24" y="84" width="300" height="140" rx="12" class="green-box"/>
+<text x="40" y="110" font-size="15"><tspan class="green-ink" font-weight="700">Bank A</tspan><tspan class="muted"> · Paladin node</tspan></text>
+<rect x="40" y="118" width="113.125" height="22" rx="6" class="green-box"/>
+<text x="96.5625" y="133.5" font-size="12.5" class="green-ink mono" text-anchor="middle">notary@bank-a</text>
+<text x="161.125" y="134" font-size="13" class="muted">checks every move</text>
+<rect x="40" y="148" width="268" height="66" rx="8" class="card"/>
+<text x="52" y="168" font-size="13">Northwind Freight's Noto states</text>
+<text x="52" y="186" font-size="13">and balance, under a key the</text>
+<text x="52" y="204" font-size="13">node derives for it</text>
+<rect x="384" y="84" width="192" height="140" rx="12" class="panel"/>
+<text x="400" y="110" font-size="15"><tspan class="slate-ink" font-weight="700">Bank C</tspan><tspan class="muted"> · Paladin node</tspan></text>
+<text x="400" y="162" font-size="13">not a party: holds none</text>
+<text x="400" y="180" font-size="13">of this payment's states</text>
+<rect x="636" y="84" width="300" height="140" rx="12" class="green-box"/>
+<text x="652" y="110" font-size="15"><tspan class="green-ink" font-weight="700">Bank B</tspan><tspan class="muted"> · Paladin node</tspan></text>
+<rect x="652" y="118" width="113.125" height="22" rx="6" class="green-box"/>
+<text x="708.562" y="133.5" font-size="12.5" class="green-ink mono" text-anchor="middle">notary@bank-b</text>
+<text x="773.125" y="134" font-size="13" class="muted">checks every move</text>
+<rect x="652" y="148" width="268" height="66" rx="8" class="card"/>
+<text x="664" y="168" font-size="13">Lakeside Steel's Noto states</text>
+<text x="664" y="186" font-size="13">and balance, under a key the</text>
+<text x="664" y="204" font-size="13">node derives for it</text>
+<line x1="324" y1="154" x2="384" y2="154" class="rule-dash"/>
+<line x1="576" y1="154" x2="636" y2="154" class="rule-dash"/>
+<text x="480" y="246" font-size="13" class="muted" text-anchor="middle">nodes talk over mutual TLS; no private state crosses between banks</text>
+<circle cx="50" cy="274" r="9" class="slate-solid"/>
+<text x="50" y="278.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">1</text>
+<text x="66" y="279" font-size="13">locks a burn of its customer's deposit</text>
+<circle cx="50" cy="298" r="9" class="slate-solid"/>
+<text x="50" y="302.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">3</text>
+<text x="66" y="303" font-size="13">delegates the lock to the contract</text>
+<circle cx="50" cy="322" r="9" class="slate-solid"/>
+<text x="50" y="326.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">5</text>
+<text x="66" y="327" font-size="13">settles, in one transaction</text>
+<circle cx="662" cy="274" r="9" class="slate-solid"/>
+<text x="662" y="278.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">2</text>
+<text x="678" y="279" font-size="13">as notary, locks a mint to its payee</text>
+<circle cx="662" cy="298" r="9" class="slate-solid"/>
+<text x="662" y="302.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">3</text>
+<text x="678" y="303" font-size="13">delegates the lock to the contract</text>
+<circle cx="662" cy="322" r="9" class="slate-solid"/>
+<text x="662" y="326.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">4</text>
+<text x="678" y="327" font-size="13">signs the payment (EIP-712)</text>
+<rect x="24" y="350" width="912" height="210" rx="12" class="panel"/>
+<text x="126" y="538" font-size="15"><tspan font-weight="700">Shared ledger</tspan><tspan class="muted">  what every validator sees, the central bank's included</tspan></text>
+<rect x="110" y="378" width="740" height="132" rx="10" class="card"/>
+<path d="M174 334 L174 374" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M786 334 L786 374" class="slate-line" marker-end="url(#ah-slate)"/>
+<text x="126" y="404" font-size="13" class="mono" font-weight="700">ConfidentialSettlement</text>
+<text x="318" y="404" font-size="13" class="muted">one transaction: wCAD moves and both locks are spent, or nothing</text>
+<rect x="126" y="422" width="48.835" height="20" rx="6" class="blue-box"/>
+<text x="150.417" y="436.5" font-size="12.5" class="blue-ink" text-anchor="middle" font-weight="600">wCAD</text>
+<text x="212" y="437" font-size="13" class="mono">Bank A → Bank B  2,500.00</text>
+<text x="834" y="437" font-size="13" class="blue-ink" text-anchor="end">in the clear</text>
+<rect x="126" y="450" width="69.1075" height="20" rx="6" class="green-box"/>
+<text x="160.554" y="464.5" font-size="12.5" class="green-ink" text-anchor="middle" font-weight="600">burn lock</text>
+<text x="212" y="465" font-size="13">state hashes + notary@bank-a's signature</text>
+<text x="834" y="465" font-size="13" class="muted" text-anchor="end">no customer, no balance</text>
+<rect x="126" y="478" width="67.385" height="20" rx="6" class="green-box"/>
+<text x="159.692" y="492.5" font-size="12.5" class="green-ink" text-anchor="middle" font-weight="600">mint lock</text>
+<text x="212" y="493" font-size="13">state hashes + notary@bank-b's signature</text>
+<text x="834" y="493" font-size="13" class="muted" text-anchor="end">no customer, no balance</text>
+<text x="24" y="594" font-size="12" class="muted" font-weight="700">WHO CAN READ THE PAYMENT</text>
+<text x="24" y="612" font-size="13" class="muted">measured by pnpm confidential:compare</text>
+<text x="284" y="606" font-size="14" font-weight="700">Baseline: plain deposit tokens</text>
+<text x="560" y="606" font-size="14" font-weight="700">Confidential mode</text>
+<text x="24" y="648" font-size="13" font-weight="600">Validators, central bank</text>
+<rect x="272" y="624" width="264" height="36" rx="8" class="red-box"/>
+<text x="284" y="647" font-size="13" class="red-ink" font-weight="600">everything</text>
+<rect x="548" y="624" width="388" height="36" rx="8" class="panel"/>
+<text x="560" y="647" font-size="13">amount (from the wholesale leg), wholesale</text>
+<text x="24" y="690" font-size="13" font-weight="600">Bank A, the payer's bank</text>
+<rect x="272" y="666" width="264" height="36" rx="8" class="red-box"/>
+<text x="284" y="689" font-size="13" class="red-ink" font-weight="600">everything</text>
+<rect x="548" y="666" width="388" height="36" rx="8" class="green-box"/>
+<text x="560" y="689" font-size="13" class="green-ink">its payer and the payer's balance, amount, wholesale</text>
+<text x="24" y="732" font-size="13" font-weight="600">Bank B, the payee's bank</text>
+<rect x="272" y="708" width="264" height="36" rx="8" class="red-box"/>
+<text x="284" y="731" font-size="13" class="red-ink" font-weight="600">everything</text>
+<rect x="548" y="708" width="388" height="36" rx="8" class="green-box"/>
+<text x="560" y="731" font-size="13" class="green-ink">its payee and the payee's balance, amount, wholesale</text>
+<text x="24" y="774" font-size="13" font-weight="600">Bank C, not a party</text>
+<rect x="272" y="750" width="264" height="36" rx="8" class="red-box"/>
+<text x="284" y="773" font-size="13" class="red-ink" font-weight="600">everything</text>
+<rect x="548" y="750" width="388" height="36" rx="8" class="panel"/>
+<text x="560" y="773" font-size="13">amount, wholesale</text>
+<text x="24" y="808" font-size="13" class="muted">Everything: payer, payee, amount, both balances and the wholesale leg. The amount stays visible because the wholesale leg moves it in the clear.</text>
+</svg>

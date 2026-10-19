@@ -1,0 +1,510 @@
+{
+ "contractName": "INotoPrivate",
+ "sourceName": "contracts/domains/interfaces/INotoPrivate.sol",
+ "abi": [
+  {
+   "inputs": [
+    {
+     "internalType": "string",
+     "name": "account",
+     "type": "string"
+    }
+   ],
+   "name": "balanceOf",
+   "outputs": [
+    {
+     "internalType": "uint256",
+     "name": "totalStates",
+     "type": "uint256"
+    },
+    {
+     "internalType": "uint256",
+     "name": "totalBalance",
+     "type": "uint256"
+    },
+    {
+     "internalType": "bool",
+     "name": "overflow",
+     "type": "bool"
+    }
+   ],
+   "stateMutability": "view",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "uint256",
+     "name": "amount",
+     "type": "uint256"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "burn",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "string",
+     "name": "from",
+     "type": "string"
+    },
+    {
+     "internalType": "uint256",
+     "name": "amount",
+     "type": "uint256"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "burnFrom",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "string",
+     "name": "from",
+     "type": "string"
+    },
+    {
+     "internalType": "uint256",
+     "name": "amount",
+     "type": "uint256"
+    },
+    {
+     "internalType": "bytes",
+     "name": "unlockData",
+     "type": "bytes"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "createBurnLock",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "uint256",
+     "name": "amount",
+     "type": "uint256"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "createLock",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "components": [
+      {
+       "internalType": "string",
+       "name": "to",
+       "type": "string"
+      },
+      {
+       "internalType": "uint256",
+       "name": "amount",
+       "type": "uint256"
+      }
+     ],
+     "internalType": "struct INotoPrivate.UnlockRecipient[]",
+     "name": "recipients",
+     "type": "tuple[]"
+    },
+    {
+     "internalType": "bytes",
+     "name": "unlockData",
+     "type": "bytes"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "createMintLock",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "string",
+     "name": "from",
+     "type": "string"
+    },
+    {
+     "components": [
+      {
+       "internalType": "string",
+       "name": "to",
+       "type": "string"
+      },
+      {
+       "internalType": "uint256",
+       "name": "amount",
+       "type": "uint256"
+      }
+     ],
+     "internalType": "struct INotoPrivate.UnlockRecipient[]",
+     "name": "recipients",
+     "type": "tuple[]"
+    },
+    {
+     "internalType": "bytes",
+     "name": "unlockData",
+     "type": "bytes"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "createTransferLock",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [],
+   "name": "decimals",
+   "outputs": [
+    {
+     "internalType": "uint8",
+     "name": "",
+     "type": "uint8"
+    }
+   ],
+   "stateMutability": "view",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "bytes32",
+     "name": "lockId",
+     "type": "bytes32"
+    },
+    {
+     "internalType": "address",
+     "name": "delegate",
+     "type": "address"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "delegateLock",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "uint256",
+     "name": "amount",
+     "type": "uint256"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "lock",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "string",
+     "name": "to",
+     "type": "string"
+    },
+    {
+     "internalType": "uint256",
+     "name": "amount",
+     "type": "uint256"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "mint",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [],
+   "name": "name",
+   "outputs": [
+    {
+     "internalType": "string",
+     "name": "",
+     "type": "string"
+    }
+   ],
+   "stateMutability": "view",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "bytes32",
+     "name": "lockId",
+     "type": "bytes32"
+    },
+    {
+     "internalType": "string",
+     "name": "from",
+     "type": "string"
+    },
+    {
+     "internalType": "uint256",
+     "name": "amount",
+     "type": "uint256"
+    },
+    {
+     "internalType": "bytes",
+     "name": "unlockData",
+     "type": "bytes"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "prepareBurnUnlock",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "bytes32",
+     "name": "lockId",
+     "type": "bytes32"
+    },
+    {
+     "components": [
+      {
+       "internalType": "string",
+       "name": "to",
+       "type": "string"
+      },
+      {
+       "internalType": "uint256",
+       "name": "amount",
+       "type": "uint256"
+      }
+     ],
+     "internalType": "struct INotoPrivate.UnlockRecipient[]",
+     "name": "recipients",
+     "type": "tuple[]"
+    },
+    {
+     "internalType": "bytes",
+     "name": "unlockData",
+     "type": "bytes"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "prepareMintUnlock",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "bytes32",
+     "name": "lockId",
+     "type": "bytes32"
+    },
+    {
+     "internalType": "string",
+     "name": "from",
+     "type": "string"
+    },
+    {
+     "components": [
+      {
+       "internalType": "string",
+       "name": "to",
+       "type": "string"
+      },
+      {
+       "internalType": "uint256",
+       "name": "amount",
+       "type": "uint256"
+      }
+     ],
+     "internalType": "struct INotoPrivate.UnlockRecipient[]",
+     "name": "recipients",
+     "type": "tuple[]"
+    },
+    {
+     "internalType": "bytes",
+     "name": "unlockData",
+     "type": "bytes"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "prepareUnlock",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [],
+   "name": "symbol",
+   "outputs": [
+    {
+     "internalType": "string",
+     "name": "",
+     "type": "string"
+    }
+   ],
+   "stateMutability": "view",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "string",
+     "name": "to",
+     "type": "string"
+    },
+    {
+     "internalType": "uint256",
+     "name": "amount",
+     "type": "uint256"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "transfer",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "string",
+     "name": "from",
+     "type": "string"
+    },
+    {
+     "internalType": "string",
+     "name": "to",
+     "type": "string"
+    },
+    {
+     "internalType": "uint256",
+     "name": "amount",
+     "type": "uint256"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "transferFrom",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  },
+  {
+   "inputs": [
+    {
+     "internalType": "bytes32",
+     "name": "lockId",
+     "type": "bytes32"
+    },
+    {
+     "internalType": "string",
+     "name": "from",
+     "type": "string"
+    },
+    {
+     "components": [
+      {
+       "internalType": "string",
+       "name": "to",
+       "type": "string"
+      },
+      {
+       "internalType": "uint256",
+       "name": "amount",
+       "type": "uint256"
+      }
+     ],
+     "internalType": "struct INotoPrivate.UnlockRecipient[]",
+     "name": "recipients",
+     "type": "tuple[]"
+    },
+    {
+     "internalType": "bytes",
+     "name": "data",
+     "type": "bytes"
+    }
+   ],
+   "name": "unlock",
+   "outputs": [],
+   "stateMutability": "nonpayable",
+   "type": "function"
+  }
+ ],
+ "bytecode": "0x"
+}

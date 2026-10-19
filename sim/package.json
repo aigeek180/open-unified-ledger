@@ -1,0 +1,18 @@
+{
+  "name": "@oul/sim",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@oul/chain": "workspace:*",
+    "@oul/scenario": "workspace:*",
+    "@oul/service": "workspace:*",
+    "@oul/domain": "workspace:*",
+    "@oul/ledger": "workspace:*",
+    "@oul/participant": "workspace:*",
+    "viem": "^2.57.7",
+    "@oul/iso20022": "workspace:*",
+    "drizzle-orm": "^0.45.4"
+  }
+}

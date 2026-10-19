@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 756" width="960" height="756" role="img" aria-labelledby="t d">
+<title id="t">Architecture of Open Unified Ledger</title>
+<desc id="d">The Central Bank and Banks A, B and C each run a Besu validator and their own service. The shared ledger (Hyperledger Besu, QBFT, final at commit) holds the ParticipantRegistry, the WholesaleToken wCAD, a DepositToken per bank (dCAD-A, dCAD-B, dCAD-C), the ERC-3643 Bond and the SettlementEngine. Customers and the Issuer run no node; their bank signs for them. Inside each bank's service: an API with operators and approval policy, double-entry books in Postgres, a submitter and signer that send instructions to the ledger, a listener that posts entries at their block, a reconciler that proves the books equal the chain every block, and an ISO 20022 adapter. A Next.js console reads every service.</desc>
+<style>
+.bg{fill:#ffffff}
+.frame{stroke:#d1d9e0;stroke-width:1}
+text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;fill:#1f2328}
+.mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace}
+.muted{fill:#59636e}
+.faint{fill:#818b98}
+.panel{fill:#f6f8fa;stroke:#d1d9e0;stroke-width:1}
+.card{fill:#ffffff;stroke:#d1d9e0;stroke-width:1}
+.rule{stroke:#d1d9e0;stroke-width:1;fill:none}
+.rule-dash{stroke:#d1d9e0;stroke-width:1.5;fill:none;stroke-dasharray:4 4}
+.on-solid{fill:#ffffff}
+.text-fill{fill:#1f2328}
+.muted-line{stroke:#59636e;stroke-width:1.5;fill:none}
+.muted-mark{fill:#59636e}
+.blue-box{fill:#ddf4ff;stroke:#0969da;stroke-width:1.5}
+.blue-soft{fill:#ddf4ff}
+.blue-ink{fill:#0a3069}
+.blue-solid{fill:#0969da}
+.blue-line{stroke:#0969da;stroke-width:1.75;fill:none}
+.blue-dash{stroke:#0969da;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.blue-stroke{fill:#0969da}
+.blue-edge{fill:none;stroke:#0969da;stroke-width:1.5}
+.green-box{fill:#dafbe1;stroke:#1a7f37;stroke-width:1.5}
+.green-soft{fill:#dafbe1}
+.green-ink{fill:#116329}
+.green-solid{fill:#1a7f37}
+.green-line{stroke:#1a7f37;stroke-width:1.75;fill:none}
+.green-dash{stroke:#1a7f37;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.green-stroke{fill:#1a7f37}
+.green-edge{fill:none;stroke:#1a7f37;stroke-width:1.5}
+.amber-box{fill:#fff8c5;stroke:#9a6700;stroke-width:1.5}
+.amber-soft{fill:#fff8c5}
+.amber-ink{fill:#6c3b00}
+.amber-solid{fill:#9a6700}
+.amber-line{stroke:#9a6700;stroke-width:1.75;fill:none}
+.amber-dash{stroke:#9a6700;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.amber-stroke{fill:#9a6700}
+.amber-edge{fill:none;stroke:#9a6700;stroke-width:1.5}
+.violet-box{fill:#fbefff;stroke:#8250df;stroke-width:1.5}
+.violet-soft{fill:#fbefff}
+.violet-ink{fill:#512a97}
+.violet-solid{fill:#8250df}
+.violet-line{stroke:#8250df;stroke-width:1.75;fill:none}
+.violet-dash{stroke:#8250df;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.violet-stroke{fill:#8250df}
+.violet-edge{fill:none;stroke:#8250df;stroke-width:1.5}
+.red-box{fill:#ffebe9;stroke:#cf222e;stroke-width:1.5}
+.red-soft{fill:#ffebe9}
+.red-ink{fill:#82071e}
+.red-solid{fill:#cf222e}
+.red-line{stroke:#cf222e;stroke-width:1.75;fill:none}
+.red-dash{stroke:#cf222e;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.red-stroke{fill:#cf222e}
+.red-edge{fill:none;stroke:#cf222e;stroke-width:1.5}
+.slate-box{fill:#f6f8fa;stroke:#818b98;stroke-width:1.5}
+.slate-soft{fill:#f6f8fa}
+.slate-ink{fill:#1f2328}
+.slate-solid{fill:#59636e}
+.slate-line{stroke:#818b98;stroke-width:1.75;fill:none}
+.slate-dash{stroke:#818b98;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.slate-stroke{fill:#818b98}
+.slate-edge{fill:none;stroke:#818b98;stroke-width:1.5}
+</style>
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="blue-stroke"/></marker><marker id="as-blue" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="blue-stroke"/></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="green-stroke"/></marker><marker id="as-green" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="green-stroke"/></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="amber-stroke"/></marker><marker id="as-amber" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="amber-stroke"/></marker><marker id="ah-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="violet-stroke"/></marker><marker id="as-violet" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="violet-stroke"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="red-stroke"/></marker><marker id="as-red" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="red-stroke"/></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="slate-stroke"/></marker><marker id="as-slate" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="slate-stroke"/></marker><marker id="ah-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="muted-mark"/></marker><marker id="as-muted" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="muted-mark"/></marker></defs>
+<rect class="bg frame" x="0.5" y="0.5" width="959" height="755" rx="12"/>
+<text x="24" y="36" font-size="22" font-weight="700">Who runs what</text>
+<text x="24" y="60" font-size="14" class="muted">Each institution runs a validator and its own service: the ledger holds the money, each service its books</text>
+<text x="24" y="92" font-size="13" font-weight="600">Customers, the Issuer</text>
+<text x="24" y="109" font-size="13" class="muted">run no node; their bank</text>
+<text x="24" y="126" font-size="13" class="muted">signs for them</text>
+<rect x="198" y="80" width="160" height="50" rx="8" class="card"/>
+<text x="278" y="100" font-size="13" class="muted" text-anchor="middle">Northwind Freight</text>
+<text x="278" y="118" font-size="13" class="muted" text-anchor="middle">Harbour Foods</text>
+<line x1="278" y1="130" x2="278" y2="150" class="rule-dash"/>
+<rect x="372" y="80" width="160" height="50" rx="8" class="card"/>
+<text x="452" y="100" font-size="13" class="muted" text-anchor="middle">Lakeside Steel</text>
+<text x="452" y="118" font-size="13" class="muted" text-anchor="middle">Prairie Grain</text>
+<line x1="452" y1="130" x2="452" y2="150" class="rule-dash"/>
+<rect x="546" y="80" width="160" height="50" rx="8" class="card"/>
+<text x="626" y="100" font-size="13" class="muted" text-anchor="middle">Coastal Shipping</text>
+<text x="626" y="118" font-size="13" class="muted" text-anchor="middle">Issuer, via its agent</text>
+<line x1="626" y1="130" x2="626" y2="150" class="rule-dash"/>
+<rect x="24" y="150" width="160" height="110" rx="10" class="blue-box"/>
+<text x="104" y="174" font-size="15" class="blue-ink" text-anchor="middle" font-weight="600">Central Bank</text>
+<text x="104" y="192" font-size="13" class="muted" text-anchor="middle">service</text>
+<text x="104" y="214" font-size="13" text-anchor="middle">issues wCAD</text>
+<text x="104" y="232" font-size="13" text-anchor="middle">RTGS simulator</text>
+<text x="104" y="250" font-size="13" text-anchor="middle">operates the registry</text>
+<rect x="198" y="150" width="160" height="110" rx="10" class="green-box"/>
+<text x="278" y="174" font-size="15" class="green-ink" text-anchor="middle" font-weight="600">Bank A</text>
+<text x="278" y="192" font-size="13" class="muted" text-anchor="middle">service</text>
+<text x="278" y="214" font-size="13" text-anchor="middle">issues dCAD-A</text>
+<text x="278" y="232" font-size="13" text-anchor="middle">double-entry books</text>
+<text x="278" y="250" font-size="13" text-anchor="middle">reconciler, ISO 20022</text>
+<rect x="372" y="150" width="160" height="110" rx="10" class="green-box"/>
+<text x="452" y="174" font-size="15" class="green-ink" text-anchor="middle" font-weight="600">Bank B</text>
+<text x="452" y="192" font-size="13" class="muted" text-anchor="middle">service</text>
+<text x="452" y="214" font-size="13" text-anchor="middle">issues dCAD-B</text>
+<text x="452" y="232" font-size="13" text-anchor="middle">double-entry books</text>
+<text x="452" y="250" font-size="13" text-anchor="middle">reconciler, ISO 20022</text>
+<rect x="546" y="150" width="160" height="110" rx="10" class="green-box"/>
+<text x="626" y="174" font-size="15" class="green-ink" text-anchor="middle" font-weight="600">Bank C</text>
+<text x="626" y="192" font-size="13" class="muted" text-anchor="middle">service</text>
+<text x="626" y="214" font-size="13" text-anchor="middle">issues dCAD-C</text>
+<text x="626" y="232" font-size="13" text-anchor="middle">agent for the bond</text>
+<text x="626" y="250" font-size="13" text-anchor="middle">reconciler, ISO 20022</text>
+<path d="M92 262 L92 298" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M116 298 L116 263" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M266 262 L266 298" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M290 298 L290 263" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M440 262 L440 298" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M464 298 L464 263" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M614 262 L614 298" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M638 298 L638 263" class="slate-line" marker-end="url(#ah-slate)"/>
+<text x="84" y="285" font-size="13" class="muted" text-anchor="end">instructions</text>
+<text x="124" y="285" font-size="13" class="muted">blocks</text>
+<rect x="24" y="300" width="682" height="170" rx="12" class="panel"/>
+<rect x="68.48" y="312" width="71.04" height="24" rx="6" class="slate-box"/>
+<text x="104" y="328.68" font-size="13" class="slate-ink" text-anchor="middle">validator</text>
+<rect x="242.48" y="312" width="71.04" height="24" rx="6" class="slate-box"/>
+<text x="278" y="328.68" font-size="13" class="slate-ink" text-anchor="middle">validator</text>
+<rect x="416.48" y="312" width="71.04" height="24" rx="6" class="slate-box"/>
+<text x="452" y="328.68" font-size="13" class="slate-ink" text-anchor="middle">validator</text>
+<rect x="590.48" y="312" width="71.04" height="24" rx="6" class="slate-box"/>
+<text x="626" y="328.68" font-size="13" class="slate-ink" text-anchor="middle">validator</text>
+<text x="40" y="362" font-size="15" font-weight="700">Shared ledger</text>
+<text x="152" y="362" font-size="13" class="muted">Hyperledger Besu · QBFT · final at commit</text>
+<rect x="40" y="374" width="650" height="38" rx="8" class="slate-box"/>
+<text x="54" y="398" font-size="13"><tspan class="mono" font-weight="700">SettlementEngine</tspan><tspan class="muted">   all legs or none · once per UETR · each leg approved by its owner</tspan></text>
+<rect x="40" y="420" width="150" height="40" rx="8" class="slate-box"/>
+<text x="115" y="436" font-size="13" class="slate-ink" text-anchor="middle" font-weight="600">ParticipantRegistry</text>
+<text x="115" y="453" font-size="13" class="muted" text-anchor="middle">who may take part</text>
+<rect x="194.667" y="420" width="138" height="40" rx="8" class="blue-box"/>
+<text x="263.667" y="436" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">WholesaleToken</text>
+<text x="263.667" y="453" font-size="12.5" class="blue-ink mono" text-anchor="middle">wCAD</text>
+<rect x="337.333" y="420" width="208" height="40" rx="8" class="green-box"/>
+<text x="441.333" y="436" font-size="13" class="green-ink" text-anchor="middle" font-weight="600">DepositToken, one per bank</text>
+<text x="441.333" y="453" font-size="12.5" class="green-ink mono" text-anchor="middle">dCAD-A · dCAD-B · dCAD-C</text>
+<rect x="550" y="420" width="140" height="40" rx="8" class="amber-box"/>
+<text x="620" y="436" font-size="13" class="amber-ink" text-anchor="middle" font-weight="600">Bond (ERC-3643)</text>
+<text x="620" y="453" font-size="12.5" class="amber-ink mono" text-anchor="middle">BOND-ISSUER-2031</text>
+<rect x="730" y="150" width="206" height="110" rx="10" class="card"/>
+<text x="744" y="174" font-size="15" font-weight="600">Console</text>
+<text x="810" y="174" font-size="13" class="muted">Next.js</text>
+<text x="744" y="196" font-size="13">reads every service: books,</text>
+<text x="744" y="214" font-size="13">instructions, messages,</text>
+<text x="744" y="232" font-size="13">reconciliation, faults</text>
+<path d="M730 205 L710 205" class="slate-line" marker-end="url(#ah-slate)"/>
+<rect x="730" y="300" width="206" height="170" rx="10" class="card"/>
+<text x="744" y="324" font-size="15" font-weight="600">Two more modes</text>
+<text x="744" y="348" font-size="13" font-weight="600">Interop</text>
+<text x="744" y="366" font-size="13" class="muted">a second Besu ledger and</text>
+<text x="744" y="384" font-size="13" class="muted">three coordinators</text>
+<text x="744" y="412" font-size="13" font-weight="600">Confidential</text>
+<text x="744" y="430" font-size="13" class="muted">a Paladin node per bank,</text>
+<text x="744" y="448" font-size="13" class="muted">deposits as Noto tokens</text>
+<rect x="24" y="504" width="682" height="232" rx="12" class="panel"/>
+<text x="66" y="530" font-size="15" font-weight="700">Inside each bank's service</text>
+<text x="266" y="530" font-size="13" class="muted">one codebase, one instance per bank</text>
+<rect x="66" y="548" width="172" height="76" rx="10" class="card"/>
+<text x="78" y="571.2" font-size="14" class="slate-ink" font-weight="600">Submitter</text>
+<text x="78" y="590.1" font-size="13">sends from the outbox</text>
+<text x="78" y="608.3" font-size="13">signs: local key or KMS</text>
+<rect x="66" y="644" width="172" height="76" rx="10" class="card"/>
+<text x="78" y="667.2" font-size="14" class="slate-ink" font-weight="600">Chain listener</text>
+<text x="78" y="686.1" font-size="13">reads each new block</text>
+<text x="78" y="704.3" font-size="13">posts its entries</text>
+<rect x="262" y="548" width="212" height="172" rx="10" class="green-box"/>
+<text x="276" y="572" font-size="15" class="green-ink" font-weight="700">Books</text>
+<text x="276" y="592" font-size="13">Postgres, double entry,</text>
+<text x="276" y="610" font-size="13">append-only; pending until</text>
+<text x="276" y="628" font-size="13">the block posts it</text>
+<rect x="274" y="654" width="188" height="64" rx="8" class="card"/>
+<text x="286" y="674" font-size="13" font-weight="700">Reconciler</text>
+<text x="286" y="692" font-size="13" class="muted">books = chain, every block;</text>
+<text x="286" y="709" font-size="13" class="muted">breaks shown, never fixed</text>
+<rect x="500" y="548" width="190" height="76" rx="10" class="card"/>
+<text x="512" y="571.2" font-size="14" class="slate-ink" font-weight="600">Service API</text>
+<text x="512" y="590.1" font-size="13">operators, approval policy</text>
+<text x="512" y="608.3" font-size="13">hash-chained audit log</text>
+<rect x="500" y="644" width="190" height="76" rx="10" class="violet-box"/>
+<text x="512" y="667.2" font-size="14" class="violet-ink" font-weight="600">ISO 20022 adapter</text>
+<text x="512" y="686.1" font-size="13">messages built from the</text>
+<text x="512" y="704.3" font-size="13">instruction and journal</text>
+<path d="M500 586 L477 586" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M262 586 L241 586" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M238 682 L259 682" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M474 682 L497 682" class="violet-line" marker-end="url(#ah-violet)"/>
+<path d="M66 586 L38 586 L38 474" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M50 472 L50 682 L63 682" class="slate-line" marker-end="url(#ah-slate)"/>
+<text x="62" y="492" font-size="13" class="muted">instructions out, blocks in</text>
+<rect x="730" y="504" width="206" height="232" rx="10" class="violet-box"/>
+<text x="744" y="530" font-size="15" class="violet-ink" font-weight="700">ISO 20022 out</text>
+<text x="744" y="550" font-size="13" class="muted">matched by one UETR</text>
+<rect x="744" y="566" width="79.44" height="26" rx="6" class="violet-box"/>
+<text x="783.72" y="583.68" font-size="13" class="violet-ink mono" text-anchor="middle">pacs.008</text>
+<rect x="838" y="566" width="79.44" height="26" rx="6" class="violet-box"/>
+<text x="877.72" y="583.68" font-size="13" class="violet-ink mono" text-anchor="middle">pacs.009</text>
+<rect x="744" y="600" width="79.44" height="26" rx="6" class="violet-box"/>
+<text x="783.72" y="617.68" font-size="13" class="violet-ink mono" text-anchor="middle">pacs.002</text>
+<rect x="838" y="600" width="79.44" height="26" rx="6" class="violet-box"/>
+<text x="877.72" y="617.68" font-size="13" class="violet-ink mono" text-anchor="middle">camt.054</text>
+<rect x="744" y="634" width="79.44" height="26" rx="6" class="violet-box"/>
+<text x="783.72" y="651.68" font-size="13" class="violet-ink mono" text-anchor="middle">camt.053</text>
+<rect x="838" y="634" width="79.44" height="26" rx="6" class="violet-box"/>
+<text x="877.72" y="651.68" font-size="13" class="violet-ink mono" text-anchor="middle">sese.023</text>
+<rect x="744" y="668" width="79.44" height="26" rx="6" class="violet-box"/>
+<text x="783.72" y="685.68" font-size="13" class="violet-ink mono" text-anchor="middle">sese.025</text>
+<text x="744" y="722" font-size="13" class="muted">valid against the XSDs</text>
+<path d="M690 682 L727 682" class="violet-line" marker-end="url(#ah-violet)"/>
+</svg>

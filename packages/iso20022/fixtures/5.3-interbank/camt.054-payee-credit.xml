@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.08">
+  <BkToCstmrDbtCdtNtfctn>
+    <GrpHdr>
+      <MsgId>OUL054-b3b5759b5a8522cb30af335e0ed0</MsgId>
+      <CreDtTm>2026-11-02T15:00:06Z</CreDtTm>
+    </GrpHdr>
+    <Ntfctn>
+      <Id>N054-b3b5759b5a8522cb30af335e0ed03a</Id>
+      <CreDtTm>2026-11-02T15:00:06Z</CreDtTm>
+      <Acct>
+        <Id>
+          <Othr>
+            <Id>tok/lakeside-steel</Id>
+            <SchmeNm>
+              <Prtry>OUL</Prtry>
+            </SchmeNm>
+          </Othr>
+        </Id>
+        <Ccy>CAD</Ccy>
+        <Prxy>
+          <Tp>
+            <Prtry>EVM</Prtry>
+          </Tp>
+          <Id>0x2D041b8c9b3013A83B0BA2ED5b7667D58941ab80</Id>
+        </Prxy>
+        <Ownr>
+          <Nm>Lakeside Steel</Nm>
+        </Ownr>
+        <Svcr>
+          <FinInstnId>
+            <ClrSysMmbId>
+              <ClrSysId>
+                <Prtry>OUL</Prtry>
+              </ClrSysId>
+              <MmbId>bank-b</MmbId>
+            </ClrSysMmbId>
+            <Nm>Bank B</Nm>
+          </FinInstnId>
+        </Svcr>
+      </Acct>
+      <Ntry>
+        <NtryRef>instruction:5a6b7c8d-9e0f-4a1b-8c2d</NtryRef>
+        <Amt Ccy="CAD">2500.00</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Sts>
+          <Cd>BOOK</Cd>
+        </Sts>
+        <BookgDt>
+          <DtTm>2026-11-02T15:00:04Z</DtTm>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-11-02</Dt>
+        </ValDt>
+        <AcctSvcrRef>block-31</AcctSvcrRef>
+        <BkTxCd>
+          <Prtry>
+            <Cd>INTERBANK</Cd>
+            <Issr>OUL</Issr>
+          </Prtry>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <Refs>
+              <EndToEndId>5a6b7c8d9e0f4a1b8c2d3e4f5a6b7c8d</EndToEndId>
+              <UETR>5a6b7c8d-9e0f-4a1b-8c2d-3e4f5a6b7c8d</UETR>
+            </Refs>
+            <Amt Ccy="CAD">2500.00</Amt>
+            <CdtDbtInd>CRDT</CdtDbtInd>
+          </TxDtls>
+        </NtryDtls>
+        <AddtlNtryInf>From Northwind Freight at Bank A</AddtlNtryInf>
+      </Ntry>
+    </Ntfctn>
+  </BkToCstmrDbtCdtNtfctn>
+</Document>

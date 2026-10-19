@@ -1,0 +1,19 @@
+{
+  "name": "@oul/ledger",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@oul/domain": "workspace:*",
+    "drizzle-orm": "^0.45.4",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@oul/scenario": "workspace:*",
+    "@types/pg": "^8.23.1"
+  }
+}

@@ -1,0 +1,42 @@
+[profile.default]
+src = "src"
+test = "test"
+script = "script"
+libs = ["lib"]
+solc = "0.8.37"
+# The ERC-7943 extension uses transient storage, so Cancun is the floor; the
+# Besu QBFT genesis enables Cancun at block 0 to match.
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 10_000
+# Library code is pinned; its compiler warnings are not ours to fix.
+ignored_warnings_from = ["lib/"]
+remappings = [
+  "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+  "forge-std/=lib/forge-std/src/",
+]
+
+[fuzz]
+runs = 512
+
+[invariant]
+runs = 256
+depth = 64
+# Handlers expect some calls to revert (that is what they test); a revert is
+# not a failure, a broken invariant is.
+fail_on_revert = false
+
+[profile.ci.invariant]
+runs = 1000
+depth = 128
+
+[fmt]
+line_length = 110
+ignore = ["src/vendor/**"]
+
+[lint]
+ignore = ["src/vendor/**"]
+# An instruction's legs are atomic by design: a failing leg must revert the
+# whole loop, and each leg calls the registry and a listed token. Both are
+# the point of the settlement engine, not accidents.
+exclude_lints = ["calls-loop", "require-revert-in-loop"]

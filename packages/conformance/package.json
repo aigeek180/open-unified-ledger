@@ -1,0 +1,25 @@
+{
+  "name": "@oul/conformance",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./src/index.ts",
+    "./sandbox": "./src/sandbox/index.ts",
+    "./interop": "./src/interop/index.ts"
+  },
+  "dependencies": {
+    "@oul/chain": "workspace:*",
+    "@oul/coordinator": "workspace:*",
+    "@oul/domain": "workspace:*",
+    "@oul/participant": "workspace:*",
+    "@oul/scenario": "workspace:*",
+    "drizzle-orm": "^0.45.4",
+    "pg": "^8.23.1",
+    "viem": "^2.57.7"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.23.1"
+  }
+}

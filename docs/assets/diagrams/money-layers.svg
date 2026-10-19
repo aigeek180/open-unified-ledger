@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 612" width="960" height="612" role="img" aria-labelledby="t d">
+<title id="t">Who is liable for each token, and who may hold it</title>
+<desc id="d">Three layers. wCAD is the Central Bank's liability (tokenized reserves), minted only by it and held only by banks with a reserve account: Bank A, Bank B, Bank C. dCAD-A is Bank A's deposit liability, still a deposit, minted and burned only by Bank A and held only by customers on its allowlist (Northwind Freight, Harbour Foods); dCAD-B and dCAD-C are alike. BOND-ISSUER-2031 is the Issuer's obligation, minted through its agent Bank C, held only by addresses with a verified identity under ERC-3643: banks, and Bank A's custody wallet for Alder Pension Plan and Birchline Insurance.</desc>
+<style>
+.bg{fill:#ffffff}
+.frame{stroke:#d1d9e0;stroke-width:1}
+text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;fill:#1f2328}
+.mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace}
+.muted{fill:#59636e}
+.faint{fill:#818b98}
+.panel{fill:#f6f8fa;stroke:#d1d9e0;stroke-width:1}
+.card{fill:#ffffff;stroke:#d1d9e0;stroke-width:1}
+.rule{stroke:#d1d9e0;stroke-width:1;fill:none}
+.rule-dash{stroke:#d1d9e0;stroke-width:1.5;fill:none;stroke-dasharray:4 4}
+.on-solid{fill:#ffffff}
+.text-fill{fill:#1f2328}
+.muted-line{stroke:#59636e;stroke-width:1.5;fill:none}
+.muted-mark{fill:#59636e}
+.blue-box{fill:#ddf4ff;stroke:#0969da;stroke-width:1.5}
+.blue-soft{fill:#ddf4ff}
+.blue-ink{fill:#0a3069}
+.blue-solid{fill:#0969da}
+.blue-line{stroke:#0969da;stroke-width:1.75;fill:none}
+.blue-dash{stroke:#0969da;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.blue-stroke{fill:#0969da}
+.blue-edge{fill:none;stroke:#0969da;stroke-width:1.5}
+.green-box{fill:#dafbe1;stroke:#1a7f37;stroke-width:1.5}
+.green-soft{fill:#dafbe1}
+.green-ink{fill:#116329}
+.green-solid{fill:#1a7f37}
+.green-line{stroke:#1a7f37;stroke-width:1.75;fill:none}
+.green-dash{stroke:#1a7f37;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.green-stroke{fill:#1a7f37}
+.green-edge{fill:none;stroke:#1a7f37;stroke-width:1.5}
+.amber-box{fill:#fff8c5;stroke:#9a6700;stroke-width:1.5}
+.amber-soft{fill:#fff8c5}
+.amber-ink{fill:#6c3b00}
+.amber-solid{fill:#9a6700}
+.amber-line{stroke:#9a6700;stroke-width:1.75;fill:none}
+.amber-dash{stroke:#9a6700;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.amber-stroke{fill:#9a6700}
+.amber-edge{fill:none;stroke:#9a6700;stroke-width:1.5}
+.violet-box{fill:#fbefff;stroke:#8250df;stroke-width:1.5}
+.violet-soft{fill:#fbefff}
+.violet-ink{fill:#512a97}
+.violet-solid{fill:#8250df}
+.violet-line{stroke:#8250df;stroke-width:1.75;fill:none}
+.violet-dash{stroke:#8250df;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.violet-stroke{fill:#8250df}
+.violet-edge{fill:none;stroke:#8250df;stroke-width:1.5}
+.red-box{fill:#ffebe9;stroke:#cf222e;stroke-width:1.5}
+.red-soft{fill:#ffebe9}
+.red-ink{fill:#82071e}
+.red-solid{fill:#cf222e}
+.red-line{stroke:#cf222e;stroke-width:1.75;fill:none}
+.red-dash{stroke:#cf222e;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.red-stroke{fill:#cf222e}
+.red-edge{fill:none;stroke:#cf222e;stroke-width:1.5}
+.slate-box{fill:#f6f8fa;stroke:#818b98;stroke-width:1.5}
+.slate-soft{fill:#f6f8fa}
+.slate-ink{fill:#1f2328}
+.slate-solid{fill:#59636e}
+.slate-line{stroke:#818b98;stroke-width:1.75;fill:none}
+.slate-dash{stroke:#818b98;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.slate-stroke{fill:#818b98}
+.slate-edge{fill:none;stroke:#818b98;stroke-width:1.5}
+</style>
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="blue-stroke"/></marker><marker id="as-blue" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="blue-stroke"/></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="green-stroke"/></marker><marker id="as-green" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="green-stroke"/></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="amber-stroke"/></marker><marker id="as-amber" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="amber-stroke"/></marker><marker id="ah-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="violet-stroke"/></marker><marker id="as-violet" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="violet-stroke"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="red-stroke"/></marker><marker id="as-red" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="red-stroke"/></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="slate-stroke"/></marker><marker id="as-slate" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="slate-stroke"/></marker><marker id="ah-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="muted-mark"/></marker><marker id="as-muted" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="muted-mark"/></marker></defs>
+<rect class="bg frame" x="0.5" y="0.5" width="959" height="611" rx="12"/>
+<text x="24" y="36" font-size="22" font-weight="700">Who owes what</text>
+<text x="24" y="60" font-size="14" class="muted">Every token is someone's liability: its issuer alone creates it, and alone decides who may hold it</text>
+<text x="24" y="100" font-size="12" class="muted" font-weight="700">WHOSE LIABILITY</text>
+<text x="344" y="100" font-size="12" class="muted" font-weight="700">THE TOKEN</text>
+<text x="574" y="100" font-size="12" class="muted" font-weight="700">WHO MAY HOLD IT</text>
+<rect x="24" y="112" width="290" height="136" rx="10" class="blue-box"/>
+<text x="38" y="138" font-size="16" class="blue-ink" font-weight="700">Central Bank</text>
+<text x="38" y="157" font-size="13" class="muted">tokenized reserves</text>
+<rect x="34" y="168" width="270" height="70" rx="8" class="card"/>
+<text x="42" y="186" font-size="13" class="muted">Liabilities</text>
+<line x1="34" y1="193" x2="304" y2="193" class="rule"/>
+<text x="42" y="211" font-size="13">banks' settlement accounts (RTGS)</text>
+<text x="42" y="229" font-size="13" class="blue-ink" font-weight="700">wCAD outstanding, a line per bank</text>
+<path d="M314 180 L340 180" class="blue-line" marker-end="url(#ah-blue)"/>
+<rect x="344" y="112" width="200" height="136" rx="10" class="card"/>
+<rect x="407.6" y="128" width="72.8" height="36" rx="6" class="blue-box"/>
+<text x="444" y="153.2" font-size="20" class="blue-ink mono" text-anchor="middle" font-weight="700">wCAD</text>
+<text x="444" y="184" font-size="13" text-anchor="middle" font-weight="600">WholesaleToken</text>
+<text x="444" y="208" font-size="13" class="muted" text-anchor="middle">only the central bank</text>
+<text x="444" y="225" font-size="13" class="muted" text-anchor="middle">mints or redeems it</text>
+<path d="M544 180 L570 180" class="blue-line" marker-end="url(#ah-blue)"/>
+<rect x="574" y="112" width="362" height="136" rx="10" class="card"/>
+<rect x="588" y="128" width="59.21" height="26" rx="6" class="green-box"/>
+<text x="617.605" y="145.68" font-size="13" class="green-ink" text-anchor="middle">Bank A</text>
+<rect x="655.21" y="128" width="59.21" height="26" rx="6" class="green-box"/>
+<text x="684.815" y="145.68" font-size="13" class="green-ink" text-anchor="middle">Bank B</text>
+<rect x="722.42" y="128" width="59.21" height="26" rx="6" class="green-box"/>
+<text x="752.025" y="145.68" font-size="13" class="green-ink" text-anchor="middle">Bank C</text>
+<text x="588" y="176" font-size="13" class="muted">banks only; a customer never holds it</text>
+<line x1="588" y1="206" x2="922" y2="206" class="rule"/>
+<text x="588" y="226" font-size="13">Only with a reserve account the central bank opened</text>
+<rect x="24" y="264" width="290" height="136" rx="10" class="green-box"/>
+<text x="38" y="290" font-size="16" class="green-ink" font-weight="700">Bank A</text>
+<text x="38" y="309" font-size="13" class="muted">Banks B and C alike: dCAD-B, dCAD-C</text>
+<rect x="34" y="320" width="270" height="70" rx="8" class="card"/>
+<text x="42" y="338" font-size="13" class="muted">Assets</text>
+<text x="179" y="338" font-size="13" class="muted">Liabilities</text>
+<line x1="34" y1="345" x2="304" y2="345" class="rule"/>
+<line x1="169" y1="345" x2="169" y2="385" class="rule"/>
+<text x="42" y="363" font-size="13">RTGS reserves</text>
+<text x="42" y="381" font-size="13">wCAD reserves</text>
+<text x="179" y="363" font-size="13">customer deposits</text>
+<text x="179" y="381" font-size="13" class="green-ink" font-weight="700">tokenized deposits</text>
+<path d="M314 332 L340 332" class="green-line" marker-end="url(#ah-green)"/>
+<rect x="344" y="264" width="200" height="136" rx="10" class="card"/>
+<rect x="395.4" y="280" width="97.2" height="36" rx="6" class="green-box"/>
+<text x="444" y="305.2" font-size="20" class="green-ink mono" text-anchor="middle" font-weight="700">dCAD-A</text>
+<text x="444" y="336" font-size="13" text-anchor="middle" font-weight="600">DepositToken</text>
+<text x="444" y="360" font-size="13" class="muted" text-anchor="middle">still a Bank A deposit;</text>
+<text x="444" y="377" font-size="13" class="muted" text-anchor="middle">only Bank A mints or burns</text>
+<path d="M544 332 L570 332" class="green-line" marker-end="url(#ah-green)"/>
+<rect x="574" y="264" width="362" height="136" rx="10" class="card"/>
+<rect x="588" y="280" width="127.33" height="26" rx="6" class="slate-box"/>
+<text x="651.665" y="297.68" font-size="13" class="slate-ink" text-anchor="middle">Northwind Freight</text>
+<rect x="723.33" y="280" width="107.44" height="26" rx="6" class="slate-box"/>
+<text x="777.05" y="297.68" font-size="13" class="slate-ink" text-anchor="middle">Harbour Foods</text>
+<text x="588" y="328" font-size="13" class="muted">customers Bank A has checked, nobody else</text>
+<line x1="588" y1="358" x2="922" y2="358" class="rule"/>
+<text x="588" y="378" font-size="13">Only on Bank A's allowlist, after its KYC (ERC-7943)</text>
+<rect x="24" y="416" width="290" height="136" rx="10" class="amber-box"/>
+<text x="38" y="442" font-size="16" class="amber-ink" font-weight="700">Issuer</text>
+<text x="38" y="461" font-size="13" class="muted">through Bank C, its issuing and paying agent</text>
+<rect x="34" y="472" width="270" height="70" rx="8" class="card"/>
+<text x="48" y="496" font-size="13" class="amber-ink" font-weight="700">Its obligation: the bond, at face</text>
+<text x="48" y="516" font-size="13" class="muted">coupons and redemption paid</text>
+<text x="48" y="533" font-size="13" class="muted">by the agent in wCAD</text>
+<path d="M314 484 L340 484" class="amber-line" marker-end="url(#ah-amber)"/>
+<rect x="344" y="416" width="200" height="136" rx="10" class="card"/>
+<rect x="358.8" y="432" width="170.4" height="36" rx="6" class="amber-box"/>
+<text x="444" y="455.4" font-size="15" class="amber-ink mono" text-anchor="middle" font-weight="700">BOND-ISSUER-2031</text>
+<text x="444" y="488" font-size="13" text-anchor="middle" font-weight="600">Bond, ERC-3643</text>
+<text x="444" y="512" font-size="13" class="muted" text-anchor="middle">minted through its agent;</text>
+<text x="444" y="529" font-size="13" class="muted" text-anchor="middle">one unit is $1,000 face</text>
+<path d="M544 484 L570 484" class="amber-line" marker-end="url(#ah-amber)"/>
+<rect x="574" y="416" width="362" height="136" rx="10" class="card"/>
+<rect x="588" y="432" width="59.21" height="26" rx="6" class="green-box"/>
+<text x="617.605" y="449.68" font-size="13" class="green-ink" text-anchor="middle">Bank A</text>
+<rect x="655.21" y="432" width="59.21" height="26" rx="6" class="green-box"/>
+<text x="684.815" y="449.68" font-size="13" class="green-ink" text-anchor="middle">Bank B</text>
+<rect x="722.42" y="432" width="148.91" height="26" rx="6" class="green-box"/>
+<text x="796.875" y="449.68" font-size="13" class="green-ink" text-anchor="middle">Bank A custody wallet</text>
+<text x="588" y="480" font-size="13" class="muted">for Alder Pension Plan and Birchline Insurance</text>
+<line x1="588" y1="510" x2="922" y2="510" class="rule"/>
+<text x="588" y="530" font-size="13">Only with a verified identity (ERC-3643 KYC claim)</text>
+<text x="24" y="584" font-size="13" class="muted">Every token moves only through the SettlementEngine, so each movement carries an instruction id the books can match.</text>
+<text x="24" y="602" font-size="13" class="muted">Tokenizing a deposit moves value between two of the bank's own liabilities: its total deposits never change.</text>
+</svg>

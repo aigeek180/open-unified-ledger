@@ -1,0 +1,56 @@
+# Cross-border payments in CAD and USD, payment versus payment.
+#
+# Follows the cross-border scope of the BIS Project Agorá report (May 2026):
+# several central banks on one ledger, each issuing tokenized reserves in its
+# own currency, and payments between currencies settled so that neither side
+# of the exchange settles without the other. All participants are fictional.
+id: ca-us-pvp
+name: Cross-border payments in CAD and USD
+currencies: [CAD, USD]
+timeZone: America/Toronto
+
+# An illustrative settlement calendar for the sandbox, not an official one.
+# It schedules bond payments, and this scenario has no bonds.
+calendar:
+  weekend: [saturday, sunday]
+
+participants:
+  # The first central bank listed operates the registry and admits the other.
+  - { id: cad-central-bank, name: CAD Central Bank, kind: central-bank, currency: CAD, validator: true }
+  - { id: usd-central-bank, name: USD Central Bank, kind: central-bank, currency: USD, validator: true }
+  - { id: bank-a, name: Bank A, kind: bank, reserves: [CAD], validator: true }
+  - { id: bank-b, name: Bank B, kind: bank, reserves: [USD], validator: true }
+  # The dealer: holds reserves in both currencies and quotes FX.
+  - { id: bank-c, name: Bank C, kind: bank, reserves: [CAD, USD], validator: true }
+
+instruments:
+  wholesale:
+    - { symbol: wCAD, issuer: cad-central-bank, currency: CAD }
+    - { symbol: wUSD, issuer: usd-central-bank, currency: USD }
+  deposits:
+    - { symbol: dCAD-A, issuer: bank-a, currency: CAD }
+    - { symbol: dUSD-B, issuer: bank-b, currency: USD }
+    - { symbol: dCAD-C, issuer: bank-c, currency: CAD }
+
+# The dealer and the rates it quotes, in target currency per unit of source
+# currency. Fixed for the sandbox, with the dealer's spread between the two
+# directions; a real dealer prices each quote from the market. A quote holds
+# for quoteSeconds of ledger time, and the payment must settle within it.
+fx:
+  dealer: bank-c
+  quoteSeconds: 120
+  rates:
+    - { from: CAD, to: USD, rate: "0.7315" }
+    - { from: USD, to: CAD, rate: "1.3642" }
+
+# Interop mode (SPEC.md §7, §13): USD on a second, separate ledger that the
+# USD Central Bank runs: wUSD and Bank B's dUSD-B, with the same customers
+# allowlisted. A payment across currencies then splits by currency: the CAD
+# legs on the shared ledger, the USD legs on ledger 2, coordinated by HTLC
+# or by the notary. The shared ledger keeps its own wUSD and dUSD-B for the
+# unified baseline.
+interop:
+  validators: [usd-central-bank]
+  wholesale: [wUSD]
+  deposits: [dUSD-B]
+  notary: { id: notary, name: Interop Notary }

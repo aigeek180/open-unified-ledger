@@ -1,0 +1,24 @@
+{
+  "name": "@oul/participant",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@oul/chain": "workspace:*",
+    "@oul/domain": "workspace:*",
+    "@oul/ledger": "workspace:*",
+    "@oul/scenario": "workspace:*",
+    "drizzle-orm": "^0.45.4",
+    "viem": "^2.57.7",
+    "@oul/iso20022": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.23.1",
+    "pg": "^8.23.1",
+    "drizzle-orm": "^0.45.4"
+  }
+}

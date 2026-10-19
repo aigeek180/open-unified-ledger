@@ -1,0 +1,40 @@
+# Customers and opening balances. The Issuer banks with Bank C, its agent, and
+# holds enough there to pay every coupon on top of what issuance brings in.
+# Mirrored accounts open at zero because the shared ledger starts empty.
+
+central-bank:
+  opening:
+    - { debit: government-securities, amount: "1500000000.00" }
+    - { credit: settlement-accounts/bank-a, amount: "500000000.00" }
+    - { credit: settlement-accounts/bank-b, amount: "500000000.00" }
+    - { credit: settlement-accounts/bank-c, amount: "400000000.00" }
+    - { credit: equity, amount: "100000000.00" }
+
+bank-a:
+  customers:
+    - { id: other-depositors, name: Other depositors (aggregate) }
+  opening:
+    - { debit: rtgs-reserves/CAD, amount: "500000000.00" }
+    - { debit: loans-and-securities, amount: "2000000000.00" }
+    - { credit: customer-deposits/other-depositors, amount: "2250000000.00" }
+    - { credit: equity, amount: "250000000.00" }
+
+bank-b:
+  customers:
+    - { id: other-depositors, name: Other depositors (aggregate) }
+  opening:
+    - { debit: rtgs-reserves/CAD, amount: "500000000.00" }
+    - { debit: loans-and-securities, amount: "1500000000.00" }
+    - { credit: customer-deposits/other-depositors, amount: "1800000000.00" }
+    - { credit: equity, amount: "200000000.00" }
+
+bank-c:
+  customers:
+    - { id: issuer, name: Issuer }
+    - { id: other-depositors, name: Other depositors (aggregate) }
+  opening:
+    - { debit: rtgs-reserves/CAD, amount: "400000000.00" }
+    - { debit: loans-and-securities, amount: "1100000000.00" }
+    - { credit: customer-deposits/issuer, amount: "20000000.00" }
+    - { credit: customer-deposits/other-depositors, amount: "1330000000.00" }
+    - { credit: equity, amount: "150000000.00" }

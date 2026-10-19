@@ -1,0 +1,52 @@
+# Interbank transfers in tokenized Canadian dollars.
+#
+# Follows the settlement model of the BIS Project Agorá report (May 2026), on
+# one ledger and in one currency, and the first phase of the tokenized-deposit
+# solution Canada's six largest banks announced they are exploring on
+# 22 September 2026: tokenized deposits moving across financial institutions.
+# All participants are fictional.
+id: ca-interbank
+name: Canadian interbank transfers
+currencies: [CAD]
+timeZone: America/Toronto
+
+# An illustrative settlement calendar for the sandbox, not an official one.
+calendar:
+  weekend: [saturday, sunday]
+  holidays:
+    - 2026-11-11
+    - 2026-12-25
+    - 2026-12-28
+    - 2027-01-01
+    - 2027-03-26
+    - 2027-05-24
+    - 2027-07-01
+    - 2027-09-06
+    - 2027-09-30
+    - 2027-10-11
+    - 2027-11-11
+    - 2027-12-27
+    - 2027-12-28
+
+participants:
+  - { id: central-bank, name: Central Bank, kind: central-bank, currency: CAD, validator: true }
+  - { id: bank-a, name: Bank A, kind: bank, reserves: [CAD], validator: true }
+  - { id: bank-b, name: Bank B, kind: bank, reserves: [CAD], validator: true }
+  - { id: bank-c, name: Bank C, kind: bank, reserves: [CAD], validator: true }
+
+instruments:
+  wholesale:
+    - { symbol: wCAD, issuer: central-bank, currency: CAD }
+  deposits:
+    - { symbol: dCAD-A, issuer: bank-a, currency: CAD }
+    - { symbol: dCAD-B, issuer: bank-b, currency: CAD }
+    - { symbol: dCAD-C, issuer: bank-c, currency: CAD }
+
+# Interop mode (SPEC.md §7): Bank B's deposit token also lives on a second,
+# separate ledger that Bank B runs, and a notary can coordinate two-phase
+# commit across the two. Ledger 1 keeps its own dCAD-B for the unified
+# baseline.
+interop:
+  validators: [bank-b]
+  deposits: [dCAD-B]
+  notary: { id: notary, name: Interop Notary }

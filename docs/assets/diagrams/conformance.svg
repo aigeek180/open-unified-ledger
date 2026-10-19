@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 782" width="960" height="782" role="img" aria-labelledby="t d">
+<title id="t">The conformance kit</title>
+<desc id="d">Any settlement engine implements one adapter (reset, submit, observe, and optionally books and fault). The kit runs scripted flows with every fault and seeded random sequences, each on a fresh deployment, and judges nine checks drawn from the invariants: atomicity, exactly once, authority, eligibility, supply equals liability, liability conservation, books equal the ledger, FX consistency and repo collateral. A failing run is reported with its seed and shrunk to the smallest sequence that still fails. The sandbox's own engine passes every check; seven deliberately broken engines are each caught on the check named for them, and the HTLC and notary coordinators fail atomicity exactly where interop mode says.</desc>
+<style>
+.bg{fill:#ffffff}
+.frame{stroke:#d1d9e0;stroke-width:1}
+text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;fill:#1f2328}
+.mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace}
+.muted{fill:#59636e}
+.faint{fill:#818b98}
+.panel{fill:#f6f8fa;stroke:#d1d9e0;stroke-width:1}
+.card{fill:#ffffff;stroke:#d1d9e0;stroke-width:1}
+.rule{stroke:#d1d9e0;stroke-width:1;fill:none}
+.rule-dash{stroke:#d1d9e0;stroke-width:1.5;fill:none;stroke-dasharray:4 4}
+.on-solid{fill:#ffffff}
+.text-fill{fill:#1f2328}
+.muted-line{stroke:#59636e;stroke-width:1.5;fill:none}
+.muted-mark{fill:#59636e}
+.blue-box{fill:#ddf4ff;stroke:#0969da;stroke-width:1.5}
+.blue-soft{fill:#ddf4ff}
+.blue-ink{fill:#0a3069}
+.blue-solid{fill:#0969da}
+.blue-line{stroke:#0969da;stroke-width:1.75;fill:none}
+.blue-dash{stroke:#0969da;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.blue-stroke{fill:#0969da}
+.blue-edge{fill:none;stroke:#0969da;stroke-width:1.5}
+.green-box{fill:#dafbe1;stroke:#1a7f37;stroke-width:1.5}
+.green-soft{fill:#dafbe1}
+.green-ink{fill:#116329}
+.green-solid{fill:#1a7f37}
+.green-line{stroke:#1a7f37;stroke-width:1.75;fill:none}
+.green-dash{stroke:#1a7f37;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.green-stroke{fill:#1a7f37}
+.green-edge{fill:none;stroke:#1a7f37;stroke-width:1.5}
+.amber-box{fill:#fff8c5;stroke:#9a6700;stroke-width:1.5}
+.amber-soft{fill:#fff8c5}
+.amber-ink{fill:#6c3b00}
+.amber-solid{fill:#9a6700}
+.amber-line{stroke:#9a6700;stroke-width:1.75;fill:none}
+.amber-dash{stroke:#9a6700;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.amber-stroke{fill:#9a6700}
+.amber-edge{fill:none;stroke:#9a6700;stroke-width:1.5}
+.violet-box{fill:#fbefff;stroke:#8250df;stroke-width:1.5}
+.violet-soft{fill:#fbefff}
+.violet-ink{fill:#512a97}
+.violet-solid{fill:#8250df}
+.violet-line{stroke:#8250df;stroke-width:1.75;fill:none}
+.violet-dash{stroke:#8250df;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.violet-stroke{fill:#8250df}
+.violet-edge{fill:none;stroke:#8250df;stroke-width:1.5}
+.red-box{fill:#ffebe9;stroke:#cf222e;stroke-width:1.5}
+.red-soft{fill:#ffebe9}
+.red-ink{fill:#82071e}
+.red-solid{fill:#cf222e}
+.red-line{stroke:#cf222e;stroke-width:1.75;fill:none}
+.red-dash{stroke:#cf222e;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.red-stroke{fill:#cf222e}
+.red-edge{fill:none;stroke:#cf222e;stroke-width:1.5}
+.slate-box{fill:#f6f8fa;stroke:#818b98;stroke-width:1.5}
+.slate-soft{fill:#f6f8fa}
+.slate-ink{fill:#1f2328}
+.slate-solid{fill:#59636e}
+.slate-line{stroke:#818b98;stroke-width:1.75;fill:none}
+.slate-dash{stroke:#818b98;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.slate-stroke{fill:#818b98}
+.slate-edge{fill:none;stroke:#818b98;stroke-width:1.5}
+</style>
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="blue-stroke"/></marker><marker id="as-blue" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="blue-stroke"/></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="green-stroke"/></marker><marker id="as-green" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="green-stroke"/></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="amber-stroke"/></marker><marker id="as-amber" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="amber-stroke"/></marker><marker id="ah-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="violet-stroke"/></marker><marker id="as-violet" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="violet-stroke"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="red-stroke"/></marker><marker id="as-red" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="red-stroke"/></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="slate-stroke"/></marker><marker id="as-slate" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="slate-stroke"/></marker><marker id="ah-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="muted-mark"/></marker><marker id="as-muted" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="muted-mark"/></marker></defs>
+<rect class="bg frame" x="0.5" y="0.5" width="959" height="781" rx="12"/>
+<text x="24" y="36" font-size="22" font-weight="700">Checking any engine against the same invariants</text>
+<text x="24" y="60" font-size="14" class="muted">One adapter, nine checks, and seven broken engines the kit must catch</text>
+<rect x="24" y="84" width="176" height="132" rx="10" class="card"/>
+<text x="38" y="108" font-size="15" font-weight="700">Engine under test</text>
+<text x="38" y="132" font-size="13">the sandbox's own,</text>
+<text x="38" y="151" font-size="13">or anyone else's</text>
+<rect x="226" y="84" width="228" height="132" rx="10" class="violet-box"/>
+<text x="240" y="108" font-size="15" class="violet-ink" font-weight="700">Adapter</text>
+<text x="240" y="132" font-size="13" class="violet-ink mono">reset(scenario)</text>
+<text x="240" y="151" font-size="13" class="violet-ink mono">submit(flow)</text>
+<text x="240" y="170" font-size="13" class="violet-ink mono">observe(ledger, block)</text>
+<text x="240" y="189" font-size="13" class="violet-ink mono">books(…)  fault(…)</text>
+<rect x="480" y="84" width="210" height="132" rx="10" class="card"/>
+<text x="494" y="108" font-size="15" font-weight="700">Runs</text>
+<text x="494" y="132" font-size="13">scripted: every flow</text>
+<text x="494" y="151" font-size="13">and every fault</text>
+<text x="494" y="170" font-size="13">seeded random sequences,</text>
+<text x="494" y="189" font-size="13">each on a fresh deployment</text>
+<rect x="716" y="84" width="220" height="132" rx="10" class="card"/>
+<text x="730" y="108" font-size="15" font-weight="700">Report</text>
+<text x="730" y="132" font-size="13">pass or fail per check,</text>
+<text x="730" y="151" font-size="13">with the seed; a failure</text>
+<text x="730" y="170" font-size="13">shrunk to the smallest</text>
+<text x="730" y="189" font-size="13">sequence that still fails</text>
+<path d="M202 150 L223 150" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M456 150 L477 150" class="slate-line" marker-end="url(#ah-slate)"/>
+<path d="M692 150 L713 150" class="slate-line" marker-end="url(#ah-slate)"/>
+<text x="24" y="250" font-size="12" class="muted" font-weight="700">NINE CHECKS, FROM THE INVARIANTS</text>
+<rect x="24" y="262" width="79.6004" height="26" rx="6" class="blue-box"/>
+<text x="63.8002" y="279.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">atomicity</text>
+<rect x="111.6" y="262" width="100.133" height="26" rx="6" class="blue-box"/>
+<text x="161.667" y="279.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">exactly once</text>
+<rect x="219.733" y="262" width="78.2224" height="26" rx="6" class="blue-box"/>
+<text x="258.844" y="279.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">authority</text>
+<rect x="305.955" y="262" width="80.1516" height="26" rx="6" class="blue-box"/>
+<text x="346.031" y="279.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">eligibility</text>
+<rect x="394.107" y="262" width="158.284" height="26" rx="6" class="blue-box"/>
+<text x="473.249" y="279.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">supply equals liability</text>
+<rect x="560.391" y="262" width="154.15" height="26" rx="6" class="blue-box"/>
+<text x="637.466" y="279.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">liability conservation</text>
+<rect x="722.541" y="262" width="163.658" height="26" rx="6" class="blue-box"/>
+<text x="804.371" y="279.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">books equal the ledger</text>
+<rect x="24" y="296" width="117.771" height="26" rx="6" class="blue-box"/>
+<text x="82.8855" y="313.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">FX consistency</text>
+<rect x="149.771" y="296" width="115.704" height="26" rx="6" class="blue-box"/>
+<text x="207.623" y="313.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">repo collateral</text>
+<text x="24" y="362" font-size="12" class="muted" font-weight="700">PROOF IT CATCHES FAILURES</text>
+<text x="24" y="388" font-size="13" class="muted" font-weight="700">Engine</text>
+<text x="232" y="388" font-size="13" class="muted" font-weight="700">The change</text>
+<text x="640" y="388" font-size="13" class="muted" font-weight="700">Result</text>
+<rect x="24" y="400" width="912" height="32" rx="8" class="green-box"/>
+<text x="38" y="421" font-size="13" class="green-ink mono" font-weight="700">sandbox engine</text>
+<text x="232" y="421" font-size="13">the real contracts and every participant's runtime</text>
+<text x="640" y="421" font-size="13" class="green-ink" font-weight="700">passes all nine, with every fault</text>
+<rect x="24" y="438" width="912" height="32" rx="8" class="card"/>
+<text x="38" y="459" font-size="13" class="mono" font-weight="700">split-legs</text>
+<text x="232" y="459" font-size="13">each leg settled in a transaction of its own</text>
+<rect x="640" y="442" width="55.0875" height="24" rx="6" class="red-box"/>
+<text x="667.544" y="458.5" font-size="12.5" class="red-ink" text-anchor="middle" font-weight="700">caught</text>
+<text x="705.087" y="459" font-size="13"><tspan class="muted">by </tspan><tspan font-weight="600">atomicity</tspan></text>
+<rect x="24" y="476" width="912" height="32" rx="8" class="card"/>
+<text x="38" y="497" font-size="13" class="mono" font-weight="700">no-once</text>
+<text x="232" y="497" font-size="13">no once-only check on the instruction id</text>
+<rect x="640" y="480" width="55.0875" height="24" rx="6" class="red-box"/>
+<text x="667.544" y="496.5" font-size="12.5" class="red-ink" text-anchor="middle" font-weight="700">caught</text>
+<text x="705.087" y="497" font-size="13"><tspan class="muted">by </tspan><tspan font-weight="600">exactly once</tspan></text>
+<rect x="24" y="514" width="912" height="32" rx="8" class="card"/>
+<text x="38" y="535" font-size="13" class="mono" font-weight="700">lax-mint</text>
+<text x="232" y="535" font-size="13">a mint accepted without the issuer's approval</text>
+<rect x="640" y="518" width="55.0875" height="24" rx="6" class="red-box"/>
+<text x="667.544" y="534.5" font-size="12.5" class="red-ink" text-anchor="middle" font-weight="700">caught</text>
+<text x="705.087" y="535" font-size="13"><tspan class="muted">by </tspan><tspan font-weight="600">authority</tspan></text>
+<rect x="24" y="552" width="912" height="32" rx="8" class="card"/>
+<text x="38" y="573" font-size="13" class="mono" font-weight="700">open-deposit</text>
+<text x="232" y="573" font-size="13">the deposit token admits anyone not blocked</text>
+<rect x="640" y="556" width="55.0875" height="24" rx="6" class="red-box"/>
+<text x="667.544" y="572.5" font-size="12.5" class="red-ink" text-anchor="middle" font-weight="700">caught</text>
+<text x="705.087" y="573" font-size="13"><tspan class="muted">by </tspan><tspan font-weight="600">eligibility</tspan></text>
+<rect x="24" y="590" width="912" height="32" rx="8" class="card"/>
+<text x="38" y="611" font-size="13" class="mono" font-weight="700">book-refused</text>
+<text x="232" y="611" font-size="13">a payment booked although the chain refused it</text>
+<rect x="640" y="594" width="55.0875" height="24" rx="6" class="red-box"/>
+<text x="667.544" y="610.5" font-size="12.5" class="red-ink" text-anchor="middle" font-weight="700">caught</text>
+<text x="705.087" y="611" font-size="13"><tspan class="muted">by </tspan><tspan font-weight="600">books equal the ledger</tspan></text>
+<rect x="24" y="628" width="912" height="32" rx="8" class="card"/>
+<text x="38" y="649" font-size="13" class="mono" font-weight="700">round-fx-twice</text>
+<text x="232" y="649" font-size="13">an FX leg rounded twice</text>
+<rect x="640" y="632" width="55.0875" height="24" rx="6" class="red-box"/>
+<text x="667.544" y="648.5" font-size="12.5" class="red-ink" text-anchor="middle" font-weight="700">caught</text>
+<text x="705.087" y="649" font-size="13"><tspan class="muted">by </tspan><tspan font-weight="600">FX consistency</tspan></text>
+<rect x="24" y="666" width="912" height="32" rx="8" class="card"/>
+<text x="38" y="687" font-size="13" class="mono" font-weight="700">repo-interest-360</text>
+<text x="232" y="687" font-size="13">a repo's interest over a 360-day year</text>
+<rect x="640" y="670" width="55.0875" height="24" rx="6" class="red-box"/>
+<text x="667.544" y="686.5" font-size="12.5" class="red-ink" text-anchor="middle" font-weight="700">caught</text>
+<text x="705.087" y="687" font-size="13"><tspan class="muted">by </tspan><tspan font-weight="600">repo collateral</tspan></text>
+<rect x="24" y="704" width="912" height="32" rx="8" class="card"/>
+<text x="38" y="725" font-size="13" class="mono" font-weight="700">HTLC, notary 2PC</text>
+<text x="232" y="725" font-size="13">interop mode's coordinators, across two ledgers</text>
+<rect x="640" y="708" width="55.0875" height="24" rx="6" class="red-box"/>
+<text x="667.544" y="724.5" font-size="12.5" class="red-ink" text-anchor="middle" font-weight="700">caught</text>
+<text x="705.087" y="725" font-size="13"><tspan class="muted">by </tspan><tspan font-weight="600">atomicity *</tspan></text>
+<text x="24" y="756" font-size="13" class="muted">* exactly in the cases where interop mode leaves the two ledgers disagreeing, and nowhere else.</text>
+</svg>

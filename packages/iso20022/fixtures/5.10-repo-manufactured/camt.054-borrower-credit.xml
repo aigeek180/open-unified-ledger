@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.08">
+  <BkToCstmrDbtCdtNtfctn>
+    <GrpHdr>
+      <MsgId>OUL054-3279a1855f6771bebe73bee675c4</MsgId>
+      <CreDtTm>2026-11-02T19:25:06Z</CreDtTm>
+    </GrpHdr>
+    <Ntfctn>
+      <Id>N054-3279a1855f6771bebe73bee675c40c</Id>
+      <CreDtTm>2026-11-02T19:25:06Z</CreDtTm>
+      <Acct>
+        <Id>
+          <Othr>
+            <Id>wholesale-outstanding/bank-b</Id>
+            <SchmeNm>
+              <Prtry>OUL</Prtry>
+            </SchmeNm>
+          </Othr>
+        </Id>
+        <Ccy>CAD</Ccy>
+        <Prxy>
+          <Tp>
+            <Prtry>EVM</Prtry>
+          </Tp>
+          <Id>0x7ccc6AF8F5fA818a9dc74aE4433B30c2473dD988</Id>
+        </Prxy>
+        <Ownr>
+          <Nm>Bank B</Nm>
+        </Ownr>
+        <Svcr>
+          <FinInstnId>
+            <ClrSysMmbId>
+              <ClrSysId>
+                <Prtry>OUL</Prtry>
+              </ClrSysId>
+              <MmbId>central-bank</MmbId>
+            </ClrSysMmbId>
+            <Nm>Central Bank</Nm>
+          </FinInstnId>
+        </Svcr>
+      </Acct>
+      <Ntry>
+        <NtryRef>instruction:f6a7b8c9-d0e1-4f2a-9b3c</NtryRef>
+        <Amt Ccy="CAD">167901.05</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Sts>
+          <Cd>BOOK</Cd>
+        </Sts>
+        <BookgDt>
+          <DtTm>2026-11-02T19:25:04Z</DtTm>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-11-02</Dt>
+        </ValDt>
+        <AcctSvcrRef>block-83</AcctSvcrRef>
+        <BkTxCd>
+          <Prtry>
+            <Cd>MANUFACTURED</Cd>
+            <Issr>OUL</Issr>
+          </Prtry>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <Refs>
+              <EndToEndId>f6a7b8c9d0e14f2a9b3c5d6e7f8091a2</EndToEndId>
+              <UETR>f6a7b8c9-d0e1-4f2a-9b3c-5d6e7f8091a2</UETR>
+            </Refs>
+            <Amt Ccy="CAD">167901.05</Amt>
+            <CdtDbtInd>CRDT</CdtDbtInd>
+          </TxDtls>
+        </NtryDtls>
+        <AddtlNtryInf>BOND-ISSUER-2031 coupon 1 on 10313 units held as repo collateral</AddtlNtryInf>
+      </Ntry>
+    </Ntfctn>
+  </BkToCstmrDbtCdtNtfctn>
+</Document>

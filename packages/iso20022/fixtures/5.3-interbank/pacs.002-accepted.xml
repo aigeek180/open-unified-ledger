@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10">
+  <FIToFIPmtStsRpt>
+    <GrpHdr>
+      <MsgId>OUL002-305bdb2242d1de507aa1c899d6a5</MsgId>
+      <CreDtTm>2026-11-02T15:00:06Z</CreDtTm>
+      <InstgAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <ClrSysId>
+              <Prtry>OUL</Prtry>
+            </ClrSysId>
+            <MmbId>bank-b</MmbId>
+          </ClrSysMmbId>
+          <Nm>Bank B</Nm>
+        </FinInstnId>
+      </InstgAgt>
+      <InstdAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <ClrSysId>
+              <Prtry>OUL</Prtry>
+            </ClrSysId>
+            <MmbId>bank-a</MmbId>
+          </ClrSysMmbId>
+          <Nm>Bank A</Nm>
+        </FinInstnId>
+      </InstdAgt>
+    </GrpHdr>
+    <TxInfAndSts>
+      <OrgnlGrpInf>
+        <OrgnlMsgId>OUL008-bee7c215571d0c11a8f816353352</OrgnlMsgId>
+        <OrgnlMsgNmId>pacs.008.001.08</OrgnlMsgNmId>
+      </OrgnlGrpInf>
+      <OrgnlEndToEndId>5a6b7c8d9e0f4a1b8c2d3e4f5a6b7c8d</OrgnlEndToEndId>
+      <OrgnlTxId>5a6b7c8d9e0f4a1b8c2d3e4f5a6b7c8d</OrgnlTxId>
+      <OrgnlUETR>5a6b7c8d-9e0f-4a1b-8c2d-3e4f5a6b7c8d</OrgnlUETR>
+      <TxSts>ACSC</TxSts>
+      <AcctSvcrRef>block-31</AcctSvcrRef>
+    </TxInfAndSts>
+  </FIToFIPmtStsRpt>
+</Document>

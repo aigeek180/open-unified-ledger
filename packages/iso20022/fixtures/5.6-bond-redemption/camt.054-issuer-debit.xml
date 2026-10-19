@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.08">
+  <BkToCstmrDbtCdtNtfctn>
+    <GrpHdr>
+      <MsgId>OUL054-32e67a8a901301df08f6359a39b8</MsgId>
+      <CreDtTm>2026-11-02T17:00:06Z</CreDtTm>
+    </GrpHdr>
+    <Ntfctn>
+      <Id>N054-32e67a8a901301df08f6359a39b8c3</Id>
+      <CreDtTm>2026-11-02T17:00:06Z</CreDtTm>
+      <Acct>
+        <Id>
+          <Othr>
+            <Id>dda/issuer</Id>
+            <SchmeNm>
+              <Prtry>OUL</Prtry>
+            </SchmeNm>
+          </Othr>
+        </Id>
+        <Ccy>CAD</Ccy>
+        <Ownr>
+          <Nm>Issuer</Nm>
+        </Ownr>
+        <Svcr>
+          <FinInstnId>
+            <ClrSysMmbId>
+              <ClrSysId>
+                <Prtry>OUL</Prtry>
+              </ClrSysId>
+              <MmbId>bank-c</MmbId>
+            </ClrSysMmbId>
+            <Nm>Bank C</Nm>
+          </FinInstnId>
+        </Svcr>
+      </Acct>
+      <Ntry>
+        <NtryRef>instruction:90a1b2c3-d4e5-4f6a-9b7c</NtryRef>
+        <Amt Ccy="CAD">101638356.16</Amt>
+        <CdtDbtInd>DBIT</CdtDbtInd>
+        <Sts>
+          <Cd>BOOK</Cd>
+        </Sts>
+        <BookgDt>
+          <DtTm>2026-11-02T17:00:04Z</DtTm>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-11-02</Dt>
+        </ValDt>
+        <AcctSvcrRef>block-61</AcctSvcrRef>
+        <BkTxCd>
+          <Prtry>
+            <Cd>REDEMPTION</Cd>
+            <Issr>OUL</Issr>
+          </Prtry>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <Refs>
+              <EndToEndId>90a1b2c3d4e54f6a9b7c8d9e0f1a2b3c</EndToEndId>
+              <UETR>90a1b2c3-d4e5-4f6a-9b7c-8d9e0f1a2b3c</UETR>
+            </Refs>
+            <Amt Ccy="CAD">101638356.16</Amt>
+            <CdtDbtInd>DBIT</CdtDbtInd>
+          </TxDtls>
+        </NtryDtls>
+        <AddtlNtryInf>BOND-ISSUER-2031 principal and coupon 10 on 100000 units</AddtlNtryInf>
+      </Ntry>
+    </Ntfctn>
+  </BkToCstmrDbtCdtNtfctn>
+</Document>

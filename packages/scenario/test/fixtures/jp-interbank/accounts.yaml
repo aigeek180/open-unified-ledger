@@ -1,0 +1,23 @@
+central-bank:
+  opening:
+    - { debit: government-securities, amount: "40000000000" }
+    - { credit: settlement-accounts/bank-a, amount: "10000000000" }
+    - { credit: settlement-accounts/bank-b, amount: "10000000000" }
+    - { credit: settlement-accounts/bank-c, amount: "10000000000" }
+    - { credit: settlement-accounts/bank-d, amount: "5000000000" }
+    - { credit: equity, amount: "5000000000" }
+bank-a:
+  customers:
+    - { id: customer-1, name: Customer 1 }
+  opening:
+    - { debit: rtgs-reserves/JPY, amount: "10000000000" }
+    - { credit: customer-deposits/customer-1, amount: "9000000000" }
+    - { credit: equity, amount: "1000000000" }
+bank-d:
+  customers:
+    - { id: customer-2, name: Customer 2 }
+  # Matches the central bank's settlement account for Bank D.
+  opening:
+    - { debit: rtgs-reserves/JPY, amount: "5000000000" }
+    - { credit: customer-deposits/customer-2, amount: "4500000000" }
+    - { credit: equity, amount: "500000000" }

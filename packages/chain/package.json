@@ -1,0 +1,19 @@
+{
+  "name": "@oul/chain",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./src/index.ts",
+    "./testing": "./src/testing.ts"
+  },
+  "scripts": {
+    "generate": "node scripts/generate-contracts.ts"
+  },
+  "dependencies": {
+    "@oul/domain": "workspace:*",
+    "@oul/scenario": "workspace:*",
+    "viem": "^2.57.7"
+  }
+}

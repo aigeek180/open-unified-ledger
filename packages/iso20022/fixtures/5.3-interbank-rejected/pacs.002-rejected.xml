@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10">
+  <FIToFIPmtStsRpt>
+    <GrpHdr>
+      <MsgId>OUL002-7463d849241d7c38ec2919cd146b</MsgId>
+      <CreDtTm>2026-11-02T15:30:02Z</CreDtTm>
+      <InstgAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <ClrSysId>
+              <Prtry>OUL</Prtry>
+            </ClrSysId>
+            <MmbId>bank-a</MmbId>
+          </ClrSysMmbId>
+          <Nm>Bank A</Nm>
+        </FinInstnId>
+      </InstgAgt>
+      <InstdAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <ClrSysId>
+              <Prtry>OUL</Prtry>
+            </ClrSysId>
+            <MmbId>bank-a</MmbId>
+          </ClrSysMmbId>
+          <Nm>Bank A</Nm>
+        </FinInstnId>
+      </InstdAgt>
+    </GrpHdr>
+    <TxInfAndSts>
+      <OrgnlGrpInf>
+        <OrgnlMsgId>OUL008-a97f085decfac57b16d54565e092</OrgnlMsgId>
+        <OrgnlMsgNmId>pacs.008.001.08</OrgnlMsgNmId>
+      </OrgnlGrpInf>
+      <OrgnlEndToEndId>0f1e2d3c4b5a4968a7b6c5d4e3f2a1b0</OrgnlEndToEndId>
+      <OrgnlTxId>0f1e2d3c4b5a4968a7b6c5d4e3f2a1b0</OrgnlTxId>
+      <OrgnlUETR>0f1e2d3c-4b5a-4968-a7b6-c5d4e3f2a1b0</OrgnlUETR>
+      <TxSts>RJCT</TxSts>
+      <StsRsnInf>
+        <Rsn>
+          <Prtry>ERC20InsufficientUnfrozenBalance</Prtry>
+        </Rsn>
+        <AddtlInf>ERC20InsufficientUnfrozenBalance</AddtlInf>
+      </StsRsnInf>
+    </TxInfAndSts>
+  </FIToFIPmtStsRpt>
+</Document>

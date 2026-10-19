@@ -1,0 +1,62 @@
+# Customers and opening balances. Accounts come from the standard charts in
+# @oul/domain (chart.ts): each central bank keeps its books in its currency,
+# each bank in its deposits' currency, with reserve accounts in every
+# currency it holds reserves in. Mirrored accounts open at zero because the
+# shared ledger starts empty.
+
+cad-central-bank:
+  opening:
+    - { debit: government-securities, amount: "1000000000.00" }
+    - { credit: settlement-accounts/bank-a, amount: "500000000.00" }
+    - { credit: settlement-accounts/bank-c, amount: "400000000.00" }
+    - { credit: equity, amount: "100000000.00" }
+
+usd-central-bank:
+  opening:
+    - { debit: government-securities, amount: "900000000.00" }
+    - { credit: settlement-accounts/bank-b, amount: "500000000.00" }
+    - { credit: settlement-accounts/bank-c, amount: "300000000.00" }
+    - { credit: equity, amount: "100000000.00" }
+
+bank-a:
+  customers:
+    - { id: northwind-freight, name: Northwind Freight }
+    - { id: harbour-foods, name: Harbour Foods }
+    - { id: other-depositors, name: Other depositors (aggregate) }
+  opening:
+    - { debit: rtgs-reserves/CAD, amount: "500000000.00" }
+    - { debit: loans-and-securities, amount: "2000000000.00" }
+    - { credit: customer-deposits/northwind-freight, amount: "25000000.00" }
+    - { credit: customer-deposits/harbour-foods, amount: "12500000.00" }
+    - { credit: customer-deposits/other-depositors, amount: "2212500000.00" }
+    - { credit: equity, amount: "250000000.00" }
+
+bank-b:
+  customers:
+    - { id: mesa-solar, name: Mesa Solar }
+    - { id: riverside-textiles, name: Riverside Textiles }
+    - { id: other-depositors, name: Other depositors (aggregate) }
+  opening:
+    - { debit: rtgs-reserves/USD, amount: "500000000.00" }
+    - { debit: loans-and-securities, amount: "1500000000.00" }
+    - { credit: customer-deposits/mesa-solar, amount: "14000000.00" }
+    - { credit: customer-deposits/riverside-textiles, amount: "6000000.00" }
+    - { credit: customer-deposits/other-depositors, amount: "1780000000.00" }
+    - { credit: equity, amount: "200000000.00" }
+
+# The dealer keeps its books in CAD. It bought its USD reserves with CAD: the
+# two FX positions record that exchange, so the opening entry balances in
+# each currency (USD 300,000,000.00 at 1.37 CAD per USD).
+bank-c:
+  customers:
+    - { id: coastal-shipping, name: Coastal Shipping }
+    - { id: other-depositors, name: Other depositors (aggregate) }
+  opening:
+    - { debit: rtgs-reserves/CAD, amount: "400000000.00" }
+    - { debit: loans-and-securities, amount: "1100000000.00" }
+    - { debit: fx-position/CAD, amount: "411000000.00" }
+    - { credit: customer-deposits/coastal-shipping, amount: "7500000.00" }
+    - { credit: customer-deposits/other-depositors, amount: "1753500000.00" }
+    - { credit: equity, amount: "150000000.00" }
+    - { debit: rtgs-reserves/USD, amount: "300000000.00" }
+    - { credit: fx-position/USD, amount: "300000000.00" }

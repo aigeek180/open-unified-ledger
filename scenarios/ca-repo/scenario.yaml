@@ -1,0 +1,83 @@
+# Interbank repo against tokenized bonds, settled in tokenized wholesale CAD.
+#
+# Bank A lends wholesale CAD to Bank B against bonds Bank B bought at issue:
+# open, margin, substitution and close, each one atomic instruction (SPEC.md
+# §5.7–§5.10). Both bonds are issued through Bank C as issuing and paying
+# agent, as in ca-bond-dvp. All participants and bonds are fictional.
+id: ca-repo
+name: Canadian interbank repo
+currencies: [CAD]
+timeZone: America/Toronto
+# ISO 3166-1 numeric: Canada. Each bond holder's identity records it (ERC-3643).
+country: 124
+
+# An illustrative settlement calendar for the sandbox, not an official one.
+calendar:
+  weekend: [saturday, sunday]
+  holidays:
+    - 2026-11-11
+    - 2026-12-25
+    - 2026-12-28
+    - 2027-01-01
+    - 2027-03-26
+    - 2027-05-24
+    - 2027-07-01
+    - 2027-09-06
+    - 2027-09-30
+    - 2027-10-11
+    - 2027-11-11
+    - 2027-12-27
+    - 2027-12-28
+
+participants:
+  - { id: central-bank, name: Central Bank, kind: central-bank, currency: CAD, validator: true }
+  - { id: bank-a, name: Bank A, kind: bank, reserves: [CAD], validator: true }
+  - { id: bank-b, name: Bank B, kind: bank, reserves: [CAD], validator: true }
+  - { id: bank-c, name: Bank C, kind: bank, reserves: [CAD], validator: true }
+  - { id: issuer, name: Issuer, kind: issuer, agent: bank-c }
+
+instruments:
+  wholesale:
+    - { symbol: wCAD, issuer: central-bank, currency: CAD }
+  deposits:
+    - { symbol: dCAD-A, issuer: bank-a, currency: CAD }
+    - { symbol: dCAD-B, issuer: bank-b, currency: CAD }
+    - { symbol: dCAD-C, issuer: bank-c, currency: CAD }
+  bonds:
+    - symbol: BOND-ISSUER-2031
+      name: Issuer 3.25% bond due 2 November 2031
+      issuer: issuer
+      agent: bank-c
+      face: "1000.00"
+      units: 100000
+      couponRate: "0.0325"
+      frequency: semiannual
+      dayCount: ACT/365F
+      issueDate: 2026-11-02
+      maturityDate: 2031-11-02
+      recordDays: 1
+      rounding: half-even
+    - symbol: BOND-ISSUER-2029
+      name: Issuer 2.80% bond due 1 June 2029
+      issuer: issuer
+      agent: bank-c
+      face: "1000.00"
+      units: 50000
+      couponRate: "0.028"
+      frequency: semiannual
+      dayCount: ACT/365F
+      issueDate: 2026-12-01
+      maturityDate: 2029-06-01
+      recordDays: 1
+      rounding: half-even
+
+# Repo (SPEC.md §5.7–§5.10): the conventions every repo between the scenario's
+# banks follows. Each repo's own terms (purchase price, rate, haircut, dates,
+# collateral) are agreed by both sides and affirmed under one UETR.
+repo:
+  # Repo interest: the purchase price × rate × days held / 365, rounded once, half-even.
+  dayCount: ACT/365F
+  # The bonds a repo accepts as collateral, and may substitute one for the other.
+  collateral: [BOND-ISSUER-2031, BOND-ISSUER-2029]
+  # A margin call not met within this many seconds of block time is overdue on both sides.
+  marginCallSeconds: 300

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.08">
+  <FIToFICstmrCdtTrf>
+    <GrpHdr>
+      <MsgId>OUL008-53cc8fd729d533ec200a36ab6c27</MsgId>
+      <CreDtTm>2026-11-02T18:00:00Z</CreDtTm>
+      <NbOfTxs>1</NbOfTxs>
+      <TtlIntrBkSttlmAmt Ccy="USD">1828.75</TtlIntrBkSttlmAmt>
+      <IntrBkSttlmDt>2026-11-02</IntrBkSttlmDt>
+      <SttlmInf>
+        <SttlmMtd>CLRG</SttlmMtd>
+        <ClrSys>
+          <Prtry>OUL</Prtry>
+        </ClrSys>
+      </SttlmInf>
+    </GrpHdr>
+    <CdtTrfTxInf>
+      <PmtId>
+        <InstrId>I008-53cc8fd729d533ec200a36ab6c273a</InstrId>
+        <EndToEndId>a1b2c3d4e5f64a7b8c9d0e1f2a3b4c5d</EndToEndId>
+        <TxId>a1b2c3d4e5f64a7b8c9d0e1f2a3b4c5d</TxId>
+        <UETR>a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d</UETR>
+      </PmtId>
+      <IntrBkSttlmAmt Ccy="USD">1828.75</IntrBkSttlmAmt>
+      <InstdAmt Ccy="CAD">2500.00</InstdAmt>
+      <XchgRate>0.7315</XchgRate>
+      <ChrgBr>SLEV</ChrgBr>
+      <InstgAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <ClrSysId>
+              <Prtry>OUL</Prtry>
+            </ClrSysId>
+            <MmbId>bank-a</MmbId>
+          </ClrSysMmbId>
+          <Nm>Bank A</Nm>
+        </FinInstnId>
+      </InstgAgt>
+      <InstdAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <ClrSysId>
+              <Prtry>OUL</Prtry>
+            </ClrSysId>
+            <MmbId>bank-b</MmbId>
+          </ClrSysMmbId>
+          <Nm>Bank B</Nm>
+        </FinInstnId>
+      </InstdAgt>
+      <Dbtr>
+        <Nm>Northwind Freight</Nm>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <Othr>
+            <Id>tok/northwind-freight</Id>
+            <SchmeNm>
+              <Prtry>OUL</Prtry>
+            </SchmeNm>
+          </Othr>
+        </Id>
+        <Prxy>
+          <Tp>
+            <Prtry>EVM</Prtry>
+          </Tp>
+          <Id>0x2857e97996fb2d8ff0780fc6fe0A016e115882a5</Id>
+        </Prxy>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <ClrSysId>
+              <Prtry>OUL</Prtry>
+            </ClrSysId>
+            <MmbId>bank-a</MmbId>
+          </ClrSysMmbId>
+          <Nm>Bank A</Nm>
+        </FinInstnId>
+      </DbtrAgt>
+      <CdtrAgt>
+        <FinInstnId>
+          <ClrSysMmbId>
+            <ClrSysId>
+              <Prtry>OUL</Prtry>
+            </ClrSysId>
+            <MmbId>bank-b</MmbId>
+          </ClrSysMmbId>
+          <Nm>Bank B</Nm>
+        </FinInstnId>
+      </CdtrAgt>
+      <Cdtr>
+        <Nm>Mesa Solar</Nm>
+      </Cdtr>
+      <CdtrAcct>
+        <Id>
+          <Othr>
+            <Id>tok/mesa-solar</Id>
+            <SchmeNm>
+              <Prtry>OUL</Prtry>
+            </SchmeNm>
+          </Othr>
+        </Id>
+        <Prxy>
+          <Tp>
+            <Prtry>EVM</Prtry>
+          </Tp>
+          <Id>0x1A553E13a469A05642084335474343804E583780</Id>
+        </Prxy>
+      </CdtrAcct>
+    </CdtTrfTxInf>
+  </FIToFICstmrCdtTrf>
+</Document>

@@ -1,0 +1,21 @@
+{
+  "name": "@oul/service",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@oul/chain": "workspace:*",
+    "@oul/domain": "workspace:*",
+    "@oul/ledger": "workspace:*",
+    "@oul/participant": "workspace:*",
+    "@oul/scenario": "workspace:*",
+    "@oul/signer": "workspace:*",
+    "fastify": "^5.12.7",
+    "viem": "^2.57.7",
+    "zod": "^4.6.7"
+  }
+}

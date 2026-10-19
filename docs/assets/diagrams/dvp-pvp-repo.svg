@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 780" width="960" height="780" role="img" aria-labelledby="t d">
+<title id="t">Bond delivery versus payment, cross-border payment versus payment, and repo</title>
+<desc id="d">Bond DvP: Bank A delivers BOND-ISSUER-2031 units to Bank B and Bank B pays wCAD, in one instruction; Bank B co-signs only the trade its operator affirmed (its sese.023 receive instruction), both sides' sese.023 match on the UETR, and sese.025 confirms with the block. Cross-border PvP: Bank A's customer Northwind Freight pays Bank B's customer Mesa Solar in USD from CAD; four legs in one instruction (burn dCAD-A, wCAD Bank A to Bank C, wUSD Bank C to Bank B, mint dUSD-B), with wCAD and wUSD issued by two central banks, at a quote Bank C, the dealer, signed. Repo: Bank A lends wCAD to Bank B against bonds; open, margin, substitution and close are each one instruction.</desc>
+<style>
+.bg{fill:#ffffff}
+.frame{stroke:#d1d9e0;stroke-width:1}
+text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;fill:#1f2328}
+.mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace}
+.muted{fill:#59636e}
+.faint{fill:#818b98}
+.panel{fill:#f6f8fa;stroke:#d1d9e0;stroke-width:1}
+.card{fill:#ffffff;stroke:#d1d9e0;stroke-width:1}
+.rule{stroke:#d1d9e0;stroke-width:1;fill:none}
+.rule-dash{stroke:#d1d9e0;stroke-width:1.5;fill:none;stroke-dasharray:4 4}
+.on-solid{fill:#ffffff}
+.text-fill{fill:#1f2328}
+.muted-line{stroke:#59636e;stroke-width:1.5;fill:none}
+.muted-mark{fill:#59636e}
+.blue-box{fill:#ddf4ff;stroke:#0969da;stroke-width:1.5}
+.blue-soft{fill:#ddf4ff}
+.blue-ink{fill:#0a3069}
+.blue-solid{fill:#0969da}
+.blue-line{stroke:#0969da;stroke-width:1.75;fill:none}
+.blue-dash{stroke:#0969da;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.blue-stroke{fill:#0969da}
+.blue-edge{fill:none;stroke:#0969da;stroke-width:1.5}
+.green-box{fill:#dafbe1;stroke:#1a7f37;stroke-width:1.5}
+.green-soft{fill:#dafbe1}
+.green-ink{fill:#116329}
+.green-solid{fill:#1a7f37}
+.green-line{stroke:#1a7f37;stroke-width:1.75;fill:none}
+.green-dash{stroke:#1a7f37;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.green-stroke{fill:#1a7f37}
+.green-edge{fill:none;stroke:#1a7f37;stroke-width:1.5}
+.amber-box{fill:#fff8c5;stroke:#9a6700;stroke-width:1.5}
+.amber-soft{fill:#fff8c5}
+.amber-ink{fill:#6c3b00}
+.amber-solid{fill:#9a6700}
+.amber-line{stroke:#9a6700;stroke-width:1.75;fill:none}
+.amber-dash{stroke:#9a6700;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.amber-stroke{fill:#9a6700}
+.amber-edge{fill:none;stroke:#9a6700;stroke-width:1.5}
+.violet-box{fill:#fbefff;stroke:#8250df;stroke-width:1.5}
+.violet-soft{fill:#fbefff}
+.violet-ink{fill:#512a97}
+.violet-solid{fill:#8250df}
+.violet-line{stroke:#8250df;stroke-width:1.75;fill:none}
+.violet-dash{stroke:#8250df;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.violet-stroke{fill:#8250df}
+.violet-edge{fill:none;stroke:#8250df;stroke-width:1.5}
+.red-box{fill:#ffebe9;stroke:#cf222e;stroke-width:1.5}
+.red-soft{fill:#ffebe9}
+.red-ink{fill:#82071e}
+.red-solid{fill:#cf222e}
+.red-line{stroke:#cf222e;stroke-width:1.75;fill:none}
+.red-dash{stroke:#cf222e;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.red-stroke{fill:#cf222e}
+.red-edge{fill:none;stroke:#cf222e;stroke-width:1.5}
+.slate-box{fill:#f6f8fa;stroke:#818b98;stroke-width:1.5}
+.slate-soft{fill:#f6f8fa}
+.slate-ink{fill:#1f2328}
+.slate-solid{fill:#59636e}
+.slate-line{stroke:#818b98;stroke-width:1.75;fill:none}
+.slate-dash{stroke:#818b98;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.slate-stroke{fill:#818b98}
+.slate-edge{fill:none;stroke:#818b98;stroke-width:1.5}
+</style>
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="blue-stroke"/></marker><marker id="as-blue" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="blue-stroke"/></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="green-stroke"/></marker><marker id="as-green" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="green-stroke"/></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="amber-stroke"/></marker><marker id="as-amber" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="amber-stroke"/></marker><marker id="ah-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="violet-stroke"/></marker><marker id="as-violet" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="violet-stroke"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="red-stroke"/></marker><marker id="as-red" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="red-stroke"/></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="slate-stroke"/></marker><marker id="as-slate" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="slate-stroke"/></marker><marker id="ah-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="muted-mark"/></marker><marker id="as-muted" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="muted-mark"/></marker></defs>
+<rect class="bg frame" x="0.5" y="0.5" width="959" height="779" rx="12"/>
+<text x="24" y="36" font-size="22" font-weight="700">Two assets, one instruction</text>
+<text x="24" y="60" font-size="14" class="muted">Delivery versus payment, payment versus payment and repo all settle every leg in one block, or none</text>
+<text x="24" y="96" font-size="12" class="muted" font-weight="700">BOND · DELIVERY VERSUS PAYMENT</text>
+<text x="24" y="120" font-size="17" font-weight="700">Units against wCAD</text>
+<text x="24" y="144" font-size="13" class="muted">Bank A sells to Bank B, which</text>
+<text x="24" y="162" font-size="13" class="muted">co-signs only the trade its own</text>
+<text x="24" y="180" font-size="13" class="muted">operator affirmed under the</text>
+<text x="24" y="198" font-size="13" class="muted">same UETR. If either leg fails,</text>
+<text x="24" y="216" font-size="13" class="muted">neither moves.</text>
+<rect x="446" y="108" width="344" height="92" rx="12" class="rule-dash"/>
+<rect x="524.873" y="96" width="186.254" height="24" rx="6" class="slate-box"/>
+<text x="618" y="112.68" font-size="13" class="slate-ink" text-anchor="middle" font-weight="600">one instruction · one block</text>
+<rect x="296" y="120" width="130" height="64" rx="10" class="green-box"/>
+<text x="361" y="147" font-size="15" class="green-ink" text-anchor="middle" font-weight="700">Bank A</text>
+<text x="361" y="166" font-size="13" class="muted" text-anchor="middle">seller</text>
+<rect x="806" y="120" width="130" height="64" rx="10" class="green-box"/>
+<text x="871" y="147" font-size="15" class="green-ink" text-anchor="middle" font-weight="700">Bank B</text>
+<text x="871" y="166" font-size="13" class="muted" text-anchor="middle">buyer</text>
+<path d="M426 140 L802 140" class="amber-line" marker-end="url(#ah-amber)"/>
+<rect x="526" y="129" width="184" height="22" rx="0" class="bg"/>
+<text x="618" y="145" font-size="13" class="amber-ink mono" text-anchor="middle" font-weight="600">BOND-ISSUER-2031 units</text>
+<path d="M806 168 L430 168" class="blue-line" marker-end="url(#ah-blue)"/>
+<rect x="576" y="157" width="84" height="22" rx="0" class="bg"/>
+<text x="618" y="173" font-size="13" class="blue-ink mono" text-anchor="middle" font-weight="600">wCAD</text>
+<rect x="300.455" y="208" width="121.09" height="24" rx="6" class="violet-box"/>
+<text x="361" y="224.68" font-size="13" class="violet-ink mono" text-anchor="middle">sese.023 DELI</text>
+<rect x="810.455" y="208" width="121.09" height="24" rx="6" class="violet-box"/>
+<text x="871" y="224.68" font-size="13" class="violet-ink mono" text-anchor="middle">sese.023 RECE</text>
+<text x="361" y="252" font-size="13" class="muted" text-anchor="middle">submits</text>
+<text x="871" y="252" font-size="13" class="muted" text-anchor="middle">its affirmation</text>
+<text x="618" y="224" font-size="13" class="muted" text-anchor="middle">both match on the UETR (CmonId);</text>
+<text x="618" y="244" font-size="13" text-anchor="middle"><tspan class="violet-ink mono" font-weight="600">sese.025</tspan><tspan class="muted"> confirms, with the block</tspan></text>
+<line x1="24" y1="278" x2="936" y2="278" class="rule"/>
+<text x="24" y="302" font-size="12" class="muted" font-weight="700">CROSS-BORDER · PAYMENT VS PAYMENT</text>
+<text x="24" y="326" font-size="17" font-weight="700">CAD against USD</text>
+<text x="24" y="350" font-size="13" class="muted">Two central banks on one ledger.</text>
+<text x="24" y="368" font-size="13" class="muted">The dealer signs a quote and</text>
+<text x="24" y="386" font-size="13" class="muted">co-signs first, so the rate</text>
+<text x="24" y="404" font-size="13" class="muted">cannot change before settling.</text>
+<text x="24" y="422" font-size="13" class="muted">pacs.008 + a pacs.009 per currency.</text>
+<rect x="284" y="314" width="652" height="168" rx="12" class="rule-dash"/>
+<rect x="481.183" y="302" width="257.634" height="24" rx="6" class="slate-box"/>
+<text x="610" y="318.68" font-size="13" class="slate-ink" text-anchor="middle" font-weight="600">one instruction · four legs · one block</text>
+<rect x="296" y="332" width="104" height="64" rx="10" class="green-box"/>
+<text x="348" y="359" font-size="15" class="green-ink" text-anchor="middle" font-weight="700">Bank A</text>
+<text x="348" y="378" font-size="13" class="muted" text-anchor="middle">CAD</text>
+<rect x="564" y="332" width="104" height="64" rx="10" class="green-box"/>
+<text x="616" y="359" font-size="15" class="green-ink" text-anchor="middle" font-weight="700">Bank C</text>
+<text x="616" y="378" font-size="13" class="muted" text-anchor="middle">the dealer</text>
+<rect x="832" y="332" width="104" height="64" rx="10" class="green-box"/>
+<text x="884" y="359" font-size="15" class="green-ink" text-anchor="middle" font-weight="700">Bank B</text>
+<text x="884" y="378" font-size="13" class="muted" text-anchor="middle">USD</text>
+<path d="M400 364 L560 364" class="blue-line" marker-end="url(#ah-blue)"/>
+<text x="482" y="356" font-size="13" class="blue-ink mono" text-anchor="middle" font-weight="700">wCAD</text>
+<text x="482" y="384" font-size="12.5" class="muted" text-anchor="middle">issued by the</text>
+<text x="482" y="400" font-size="12.5" class="blue-ink" text-anchor="middle">CAD Central Bank</text>
+<path d="M668 364 L828 364" class="blue-line" marker-end="url(#ah-blue)"/>
+<text x="750" y="356" font-size="13" class="blue-ink mono" text-anchor="middle" font-weight="700">wUSD</text>
+<text x="750" y="384" font-size="12.5" class="muted" text-anchor="middle">issued by the</text>
+<text x="750" y="400" font-size="12.5" class="blue-ink" text-anchor="middle">USD Central Bank</text>
+<rect x="295.385" y="410" width="105.23" height="24" rx="6" class="green-box"/>
+<text x="348" y="426.68" font-size="13" class="green-ink mono" text-anchor="middle">burn dCAD-A</text>
+<text x="348" y="452" font-size="13" class="muted" text-anchor="middle">Northwind Freight</text>
+<rect x="831.385" y="410" width="105.23" height="24" rx="6" class="green-box"/>
+<text x="884" y="426.68" font-size="13" class="green-ink mono" text-anchor="middle">mint dUSD-B</text>
+<text x="884" y="452" font-size="13" class="muted" text-anchor="middle">Mesa Solar</text>
+<rect x="486" y="408" width="260" height="64" rx="8" class="card"/>
+<text x="616" y="428" font-size="13" text-anchor="middle" font-weight="700">Signed quote (EIP-712)</text>
+<text x="616" y="446" font-size="13" class="muted" text-anchor="middle">CAD → USD at 0.7315, target rounded</text>
+<text x="616" y="463" font-size="13" class="muted" text-anchor="middle">once, half-even; it expires</text>
+<line x1="24" y1="502" x2="936" y2="502" class="rule"/>
+<text x="24" y="524" font-size="12" class="muted" font-weight="700">REPO</text>
+<text x="24" y="548" font-size="17" font-weight="700">Cash against collateral</text>
+<text x="24" y="572" font-size="13" class="muted">Bank A lends wCAD to Bank B</text>
+<text x="24" y="590" font-size="13" class="muted">against bonds. Each step is one</text>
+<text x="24" y="608" font-size="13" class="muted">instruction, and each bank's</text>
+<text x="24" y="626" font-size="13" class="muted">repo record is proven against</text>
+<text x="24" y="644" font-size="13" class="muted">the chain every block.</text>
+<text x="296" y="528" font-size="13"><tspan class="mono" font-weight="700">A</tspan><tspan class="muted"> = Bank A, the lender  ·  </tspan><tspan class="mono" font-weight="700">B</tspan><tspan class="muted"> = Bank B, the borrower</tspan></text>
+<rect x="296" y="544" width="154" height="192" rx="10" class="card"/>
+<text x="308" y="568" font-size="15" font-weight="700">Open</text>
+<text x="308" y="586" font-size="13" class="muted">against payment</text>
+<rect x="308" y="600" width="43.2136" height="24" rx="6" class="amber-box"/>
+<text x="329.607" y="616.68" font-size="13" class="amber-ink" text-anchor="middle" font-weight="600">bond</text>
+<text x="368" y="617" font-size="14" class="amber-ink mono" font-weight="600">B → A</text>
+<rect x="308" y="632" width="52.3084" height="24" rx="6" class="blue-box"/>
+<text x="334.154" y="648.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">wCAD</text>
+<text x="368" y="649" font-size="14" class="blue-ink mono" font-weight="600">A → B</text>
+<text x="308" y="684" font-size="13" class="muted">the purchase price,</text>
+<text x="308" y="701" font-size="13" class="muted">covered by the units</text>
+<text x="308" y="718" font-size="13" class="muted">after the haircut</text>
+<rect x="458" y="544" width="154" height="192" rx="10" class="card"/>
+<text x="470" y="568" font-size="15" font-weight="700">Margin</text>
+<text x="470" y="586" font-size="13" class="muted">free of payment</text>
+<rect x="470" y="600" width="43.2136" height="24" rx="6" class="amber-box"/>
+<text x="491.607" y="616.68" font-size="13" class="amber-ink" text-anchor="middle" font-weight="600">bond</text>
+<text x="530" y="617" font-size="14" class="amber-ink mono" font-weight="600">B → A</text>
+<rect x="470" y="632" width="43.2136" height="24" rx="6" class="amber-box"/>
+<text x="491.607" y="648.68" font-size="13" class="amber-ink" text-anchor="middle" font-weight="600">bond</text>
+<text x="530" y="649" font-size="14" class="amber-ink mono" font-weight="600">A → B</text>
+<text x="470" y="684" font-size="13" class="muted">either way: B → A tops</text>
+<text x="470" y="701" font-size="13" class="muted">up a shortfall, A → B</text>
+<text x="470" y="718" font-size="13" class="muted">returns an excess</text>
+<rect x="620" y="544" width="154" height="192" rx="10" class="card"/>
+<text x="632" y="568" font-size="15" font-weight="700">Substitution</text>
+<text x="632" y="586" font-size="13" class="muted">free of payment</text>
+<rect x="632" y="600" width="43.2136" height="24" rx="6" class="amber-box"/>
+<text x="653.607" y="616.68" font-size="13" class="amber-ink" text-anchor="middle" font-weight="600">bond</text>
+<text x="692" y="617" font-size="14" class="amber-ink mono" font-weight="600">A → B</text>
+<rect x="632" y="632" width="43.2136" height="24" rx="6" class="amber-box"/>
+<text x="653.607" y="648.68" font-size="13" class="amber-ink" text-anchor="middle" font-weight="600">bond</text>
+<text x="692" y="649" font-size="14" class="amber-ink mono" font-weight="600">B → A</text>
+<text x="632" y="684" font-size="13" class="muted">old units out, new in,</text>
+<text x="632" y="701" font-size="13" class="muted">in one block: never</text>
+<text x="632" y="718" font-size="13" class="muted">uncovered</text>
+<rect x="782" y="544" width="154" height="192" rx="10" class="card"/>
+<text x="794" y="568" font-size="15" font-weight="700">Close</text>
+<text x="794" y="586" font-size="13" class="muted">against payment</text>
+<rect x="794" y="600" width="43.2136" height="24" rx="6" class="amber-box"/>
+<text x="815.607" y="616.68" font-size="13" class="amber-ink" text-anchor="middle" font-weight="600">bond</text>
+<text x="854" y="617" font-size="14" class="amber-ink mono" font-weight="600">A → B</text>
+<rect x="794" y="632" width="52.3084" height="24" rx="6" class="blue-box"/>
+<text x="820.154" y="648.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">wCAD</text>
+<text x="854" y="649" font-size="14" class="blue-ink mono" font-weight="600">B → A</text>
+<text x="794" y="684" font-size="13" class="muted">price plus interest,</text>
+<text x="794" y="701" font-size="13" class="muted">ACT/365F, rounded</text>
+<text x="794" y="718" font-size="13" class="muted">once, half-even</text>
+<text x="296" y="760" font-size="13"><tspan class="violet-ink mono" font-weight="600">sese.023</tspan><tspan class="muted"> from each side and </tspan><tspan class="violet-ink mono" font-weight="600">sese.025</tspan><tspan class="muted"> once settled, each naming the repo by its opening UETR</tspan></text>
+</svg>

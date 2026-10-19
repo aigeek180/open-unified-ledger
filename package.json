@@ -1,0 +1,53 @@
+{
+  "name": "open-unified-ledger",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "packageManager": "pnpm@11.2.2",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "db:up": "docker compose -f infra/compose.yaml up -d --wait postgres",
+    "db:down": "docker compose -f infra/compose.yaml down",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test:contracts": "forge test --root contracts",
+    "build:contracts": "forge build --root contracts",
+    "network:generate": "node packages/chain/scripts/cli.ts generate",
+    "network:up": "docker compose -f infra/besu/generated/compose.yaml up -d",
+    "network:down": "docker compose -f infra/besu/generated/compose.yaml down -v",
+    "network:logs": "docker compose -f infra/besu/generated/compose.yaml logs --tail=50",
+    "deploy": "node packages/chain/scripts/cli.ts deploy",
+    "network:smoke": "node packages/chain/scripts/cli.ts smoke",
+    "interop:generate": "node packages/chain/scripts/cli.ts generate-interop",
+    "interop:up": "docker compose -f infra/besu/interop/compose.yaml up -d",
+    "interop:down": "docker compose -f infra/besu/interop/compose.yaml down -v",
+    "interop:deploy": "node packages/chain/scripts/cli.ts deploy-interop",
+    "interop:smoke": "node packages/chain/scripts/cli.ts smoke-interop",
+    "interop": "node services/coordinator/src/cli.ts",
+    "confidential:deploy": "node packages/chain/scripts/cli.ts deploy-confidential",
+    "confidential:up": "docker compose -f infra/paladin/generated/compose.yaml up -d",
+    "confidential:down": "docker compose -f infra/paladin/generated/compose.yaml down -v",
+    "confidential:logs": "docker compose -f infra/paladin/generated/compose.yaml logs --tail=80",
+    "confidential:setup": "node packages/chain/scripts/cli.ts setup-confidential",
+    "confidential:smoke": "node packages/chain/scripts/cli.ts smoke-confidential",
+    "confidential:pay": "node packages/chain/scripts/cli.ts pay-confidential",
+    "confidential:compare": "node packages/chain/scripts/cli.ts compare-confidential",
+    "services:up": "node sim/src/up.ts",
+    "operator:token": "node packages/scenario/scripts/token.ts",
+    "e2e": "node sim/src/e2e.ts",
+    "sim": "node sim/src/sim.ts",
+    "demo": "node sim/src/demo.ts",
+    "sim:seeds": "node sim/src/seeds.ts",
+    "conformance": "node packages/conformance/scripts/cli.ts",
+    "console": "pnpm --filter @oul/console dev",
+    "typecheck:console": "pnpm --filter @oul/console typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "fast-check": "^4.10.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}

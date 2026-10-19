@@ -1,0 +1,72 @@
+# Each participant's operators and what its policy requires before it signs
+# or sends a flow (SPEC.md §15, invariant 12). An operator initiates; the
+# first rule that matches the flow decides how many approvals it needs, from
+# operators other than its initiator holding one of the roles listed; only
+# then is it signed and sent. Amounts are in the flow's own currency.
+# Operators and their names are fictional; in the sandbox each is identified
+# by a token derived from public labels, which the console sends.
+
+cad-central-bank:
+    operators:
+      - { id: ops-1, name: Operations 1, roles: [operator] }
+      - { id: ops-2, name: Operations 2, roles: [operator] }
+      - { id: approver-1, name: Approver 1, roles: [approver] }
+      - { id: approver-2, name: Approver 2, roles: [approver] }
+      - { id: admin-1, name: Administrator 1, roles: [administrator] }
+      - { id: admin-2, name: Administrator 2, roles: [administrator, approver] }
+    policy:
+      # Minting wholesale tokens for a bank above this amount needs a second pair of eyes.
+      - { actions: [fund], over: "40000000.00", approvals: 1, by: [approver] }
+      - { actions: [administration], approvals: 1, by: [administrator] }
+
+usd-central-bank:
+    operators:
+      - { id: ops-1, name: Operations 1, roles: [operator] }
+      - { id: ops-2, name: Operations 2, roles: [operator] }
+      - { id: approver-1, name: Approver 1, roles: [approver] }
+      - { id: approver-2, name: Approver 2, roles: [approver] }
+      - { id: admin-1, name: Administrator 1, roles: [administrator] }
+      - { id: admin-2, name: Administrator 2, roles: [administrator, approver] }
+    policy:
+      # Minting wholesale tokens for a bank above this amount needs a second pair of eyes.
+      - { actions: [fund], over: "40000000.00", approvals: 1, by: [approver] }
+      - { actions: [administration], approvals: 1, by: [administrator] }
+
+bank-a:
+    operators:
+      - { id: ops-1, name: Operations 1, roles: [operator] }
+      - { id: ops-2, name: Operations 2, roles: [operator] }
+      - { id: approver-1, name: Approver 1, roles: [approver] }
+      - { id: approver-2, name: Approver 2, roles: [approver] }
+      - { id: admin-1, name: Administrator 1, roles: [administrator] }
+      - { id: admin-2, name: Administrator 2, roles: [administrator, approver] }
+    policy:
+      - { actions: [fund, redeem], over: "25000000.00", approvals: 1, by: [approver] }
+      - { actions: [interbank, pvp], over: "10000.00", approvals: 1, by: [approver] }
+      - { actions: [administration], approvals: 1, by: [administrator] }
+
+bank-b:
+    operators:
+      - { id: ops-1, name: Operations 1, roles: [operator] }
+      - { id: ops-2, name: Operations 2, roles: [operator] }
+      - { id: approver-1, name: Approver 1, roles: [approver] }
+      - { id: approver-2, name: Approver 2, roles: [approver] }
+      - { id: admin-1, name: Administrator 1, roles: [administrator] }
+      - { id: admin-2, name: Administrator 2, roles: [administrator, approver] }
+    policy:
+      - { actions: [fund, redeem], over: "25000000.00", approvals: 1, by: [approver] }
+      - { actions: [interbank, pvp], over: "10000.00", approvals: 1, by: [approver] }
+      - { actions: [administration], approvals: 1, by: [administrator] }
+
+bank-c:
+    operators:
+      - { id: ops-1, name: Operations 1, roles: [operator] }
+      - { id: ops-2, name: Operations 2, roles: [operator] }
+      - { id: approver-1, name: Approver 1, roles: [approver] }
+      - { id: approver-2, name: Approver 2, roles: [approver] }
+      - { id: admin-1, name: Administrator 1, roles: [administrator] }
+      - { id: admin-2, name: Administrator 2, roles: [administrator, approver] }
+    policy:
+      - { actions: [fund, redeem], over: "25000000.00", approvals: 1, by: [approver] }
+      - { actions: [interbank, pvp], over: "10000.00", approvals: 1, by: [approver] }
+      - { actions: [administration], approvals: 1, by: [administrator] }

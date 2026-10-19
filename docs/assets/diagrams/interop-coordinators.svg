@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 948" width="960" height="948" role="img" aria-labelledby="t d">
+<title id="t">The same payment across two ledgers, under three coordinators</title>
+<desc id="d">Interop mode puts Bank B's deposit token on a second Besu ledger. Ledger 1 holds the burn of the payer's dCAD-A and the wCAD move from Bank A to Bank B; ledger 2 holds the mint of the payee's dCAD-B. Each ledger runs a ConditionalSettlement that locks its part, then settles it or releases it. Unified settles all three legs in one transaction and never leaves the ledgers disagreeing. HTLC ends inconsistent when Bank B is back after ledger 1's timeout or its claim lands late: the payee was credited and Bank B never paid. Notary two-phase commit ends inconsistent when the notary crashes between its commits and is back after ledger 2's timeout, or its second commit lands late: Bank B was paid and the payee never credited. A table gives the outcome of each coordinator under each fault.</desc>
+<style>
+.bg{fill:#ffffff}
+.frame{stroke:#d1d9e0;stroke-width:1}
+text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;fill:#1f2328}
+.mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace}
+.muted{fill:#59636e}
+.faint{fill:#818b98}
+.panel{fill:#f6f8fa;stroke:#d1d9e0;stroke-width:1}
+.card{fill:#ffffff;stroke:#d1d9e0;stroke-width:1}
+.rule{stroke:#d1d9e0;stroke-width:1;fill:none}
+.rule-dash{stroke:#d1d9e0;stroke-width:1.5;fill:none;stroke-dasharray:4 4}
+.on-solid{fill:#ffffff}
+.text-fill{fill:#1f2328}
+.muted-line{stroke:#59636e;stroke-width:1.5;fill:none}
+.muted-mark{fill:#59636e}
+.blue-box{fill:#ddf4ff;stroke:#0969da;stroke-width:1.5}
+.blue-soft{fill:#ddf4ff}
+.blue-ink{fill:#0a3069}
+.blue-solid{fill:#0969da}
+.blue-line{stroke:#0969da;stroke-width:1.75;fill:none}
+.blue-dash{stroke:#0969da;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.blue-stroke{fill:#0969da}
+.blue-edge{fill:none;stroke:#0969da;stroke-width:1.5}
+.green-box{fill:#dafbe1;stroke:#1a7f37;stroke-width:1.5}
+.green-soft{fill:#dafbe1}
+.green-ink{fill:#116329}
+.green-solid{fill:#1a7f37}
+.green-line{stroke:#1a7f37;stroke-width:1.75;fill:none}
+.green-dash{stroke:#1a7f37;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.green-stroke{fill:#1a7f37}
+.green-edge{fill:none;stroke:#1a7f37;stroke-width:1.5}
+.amber-box{fill:#fff8c5;stroke:#9a6700;stroke-width:1.5}
+.amber-soft{fill:#fff8c5}
+.amber-ink{fill:#6c3b00}
+.amber-solid{fill:#9a6700}
+.amber-line{stroke:#9a6700;stroke-width:1.75;fill:none}
+.amber-dash{stroke:#9a6700;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.amber-stroke{fill:#9a6700}
+.amber-edge{fill:none;stroke:#9a6700;stroke-width:1.5}
+.violet-box{fill:#fbefff;stroke:#8250df;stroke-width:1.5}
+.violet-soft{fill:#fbefff}
+.violet-ink{fill:#512a97}
+.violet-solid{fill:#8250df}
+.violet-line{stroke:#8250df;stroke-width:1.75;fill:none}
+.violet-dash{stroke:#8250df;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.violet-stroke{fill:#8250df}
+.violet-edge{fill:none;stroke:#8250df;stroke-width:1.5}
+.red-box{fill:#ffebe9;stroke:#cf222e;stroke-width:1.5}
+.red-soft{fill:#ffebe9}
+.red-ink{fill:#82071e}
+.red-solid{fill:#cf222e}
+.red-line{stroke:#cf222e;stroke-width:1.75;fill:none}
+.red-dash{stroke:#cf222e;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.red-stroke{fill:#cf222e}
+.red-edge{fill:none;stroke:#cf222e;stroke-width:1.5}
+.slate-box{fill:#f6f8fa;stroke:#818b98;stroke-width:1.5}
+.slate-soft{fill:#f6f8fa}
+.slate-ink{fill:#1f2328}
+.slate-solid{fill:#59636e}
+.slate-line{stroke:#818b98;stroke-width:1.75;fill:none}
+.slate-dash{stroke:#818b98;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.slate-stroke{fill:#818b98}
+.slate-edge{fill:none;stroke:#818b98;stroke-width:1.5}
+</style>
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="blue-stroke"/></marker><marker id="as-blue" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="blue-stroke"/></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="green-stroke"/></marker><marker id="as-green" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="green-stroke"/></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="amber-stroke"/></marker><marker id="as-amber" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="amber-stroke"/></marker><marker id="ah-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="violet-stroke"/></marker><marker id="as-violet" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="violet-stroke"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="red-stroke"/></marker><marker id="as-red" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="red-stroke"/></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="slate-stroke"/></marker><marker id="as-slate" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="slate-stroke"/></marker><marker id="ah-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="muted-mark"/></marker><marker id="as-muted" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="muted-mark"/></marker></defs>
+<rect class="bg frame" x="0.5" y="0.5" width="959" height="947" rx="12"/>
+<text x="24" y="36" font-size="22" font-weight="700">One payment, two ledgers, three coordinators</text>
+<text x="24" y="60" font-size="14" class="muted">Bank B's deposits move to a second ledger: each ledger locks its part, then settles or releases it</text>
+<rect x="24" y="84" width="444" height="138" rx="12" class="panel"/>
+<text x="40" y="110" font-size="15"><tspan font-weight="700">Ledger 1</tspan><tspan class="muted">   the shared ledger</tspan></text>
+<rect x="40" y="124" width="412" height="84" rx="8" class="card"/>
+<text x="54" y="146" font-size="13" class="mono" font-weight="700">ConditionalSettlement lock</text>
+<rect x="54" y="159" width="45.2136" height="24" rx="6" class="green-box"/>
+<text x="76.6068" y="175.68" font-size="13" class="green-ink" text-anchor="middle" font-weight="600">burn</text>
+<text x="116" y="176" font-size="13"><tspan font-weight="600"> </tspan><tspan class="green-ink mono" font-weight="600">dCAD-A</tspan><tspan class="muted">  from Northwind Freight</tspan></text>
+<rect x="54" y="185" width="49.761" height="24" rx="6" class="blue-box"/>
+<text x="78.8805" y="201.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">move</text>
+<text x="116" y="202" font-size="13"><tspan font-weight="600"> </tspan><tspan class="blue-ink mono" font-weight="600">wCAD</tspan><tspan class="muted">  Bank A → Bank B</tspan></text>
+<rect x="492" y="84" width="444" height="138" rx="12" class="panel"/>
+<text x="508" y="110" font-size="15"><tspan font-weight="700">Ledger 2</tspan><tspan class="muted">   a separate Besu network, Bank B's</tspan></text>
+<rect x="508" y="124" width="412" height="84" rx="8" class="card"/>
+<text x="522" y="146" font-size="13" class="mono" font-weight="700">ConditionalSettlement lock</text>
+<rect x="522" y="159" width="43.4222" height="24" rx="6" class="green-box"/>
+<text x="543.711" y="175.68" font-size="13" class="green-ink" text-anchor="middle" font-weight="600">mint</text>
+<text x="584" y="176" font-size="13"><tspan font-weight="600"> </tspan><tspan class="green-ink mono" font-weight="600">dCAD-B</tspan><tspan class="muted">  to Lakeside Steel</tspan></text>
+<text x="480" y="240" font-size="13" class="muted" text-anchor="middle">both parts under the payment's UETR</text>
+<text x="480" y="262" font-size="13" text-anchor="middle"><tspan class="muted">Each lock freezes what its legs take, then </tspan><tspan class="green-ink" font-weight="700">settles</tspan><tspan class="muted"> (secret or notary's commit, before the timeout) or is </tspan><tspan font-weight="700">released</tspan><tspan class="muted"> (abort, or refund after it)</tspan></text>
+<text x="24" y="312" font-size="12" class="muted" font-weight="700">COORDINATOR</text>
+<text x="24" y="336" font-size="13" class="muted">Three ways to move</text>
+<text x="24" y="354" font-size="13" class="muted">the same payment,</text>
+<text x="24" y="372" font-size="13" class="muted">behind one interface</text>
+<rect x="208" y="288" width="236" height="330" rx="10" class="card"/>
+<text x="222" y="314" font-size="16" font-weight="700">Unified</text>
+<text x="222" y="333" font-size="13" class="muted">the baseline</text>
+<text x="222" y="364" font-size="13">All three legs on the shared</text>
+<text x="222" y="382" font-size="13">ledger, settled by the</text>
+<text x="222" y="400" font-size="13">SettlementEngine in one</text>
+<text x="222" y="418" font-size="13">transaction</text>
+<rect x="218" y="522" width="216" height="86" rx="8" class="green-box"/>
+<text x="230" y="544" font-size="13" class="green-ink" font-weight="700">Never disagree</text>
+<text x="230" y="563" font-size="13" class="green-ink">one transaction settles every</text>
+<text x="230" y="580" font-size="13" class="green-ink">leg or none, whatever fails</text>
+<rect x="452" y="288" width="236" height="330" rx="10" class="card"/>
+<text x="466" y="314" font-size="16" font-weight="700">HTLC</text>
+<text x="466" y="333" font-size="13" class="muted">hashed timelocks, run by the banks</text>
+<circle cx="476" cy="361" r="9" class="slate-solid"/>
+<text x="476" y="365.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">1</text>
+<text x="492" y="366" font-size="13">Bank A locks ledger 1 under</text>
+<text x="492" y="384" font-size="13" class="muted">a hash, the longer timeout</text>
+<circle cx="476" cy="401" r="9" class="slate-solid"/>
+<text x="476" y="405.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">2</text>
+<text x="492" y="406" font-size="13">Bank B locks ledger 2, same</text>
+<text x="492" y="424" font-size="13" class="muted">hash, a shorter timeout</text>
+<circle cx="476" cy="441" r="9" class="slate-solid"/>
+<text x="476" y="445.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">3</text>
+<text x="492" y="446" font-size="13">Bank A claims ledger 2 with</text>
+<text x="492" y="464" font-size="13" class="muted">the secret: payee credited</text>
+<circle cx="476" cy="481" r="9" class="slate-solid"/>
+<text x="476" y="485.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">4</text>
+<text x="492" y="486" font-size="13">Bank B claims ledger 1 with</text>
+<text x="492" y="504" font-size="13" class="muted">the now-public secret</text>
+<rect x="462" y="522" width="216" height="86" rx="8" class="red-box"/>
+<text x="474" y="544" font-size="13" class="red-ink" font-weight="700">Can end inconsistent</text>
+<text x="474" y="563" font-size="13" class="red-ink">Bank B back after ledger 1's</text>
+<text x="474" y="580" font-size="13" class="red-ink">timeout, or its claim late:</text>
+<text x="474" y="597" font-size="13" class="red-ink">payee credited, Bank B unpaid</text>
+<rect x="696" y="288" width="236" height="330" rx="10" class="card"/>
+<text x="710" y="314" font-size="16" font-weight="700">Notary 2PC</text>
+<text x="710" y="333" font-size="13" class="muted">two-phase commit</text>
+<circle cx="720" cy="361" r="9" class="slate-solid"/>
+<text x="720" y="365.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">1</text>
+<text x="736" y="366" font-size="13">Both banks lock their parts,</text>
+<text x="736" y="384" font-size="13" class="muted">naming the notary</text>
+<circle cx="720" cy="401" r="9" class="slate-solid"/>
+<text x="720" y="405.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">2</text>
+<text x="736" y="406" font-size="13">The notary logs its decision,</text>
+<text x="736" y="424" font-size="13" class="muted">then commits ledger 1</text>
+<circle cx="720" cy="441" r="9" class="slate-solid"/>
+<text x="720" y="445.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">3</text>
+<text x="736" y="446" font-size="13">then commits ledger 2</text>
+<rect x="706" y="522" width="216" height="86" rx="8" class="red-box"/>
+<text x="718" y="544" font-size="13" class="red-ink" font-weight="700">Can end inconsistent</text>
+<text x="718" y="563" font-size="13" class="red-ink">crash between the commits,</text>
+<text x="718" y="580" font-size="13" class="red-ink">back after ledger 2's timeout:</text>
+<text x="718" y="597" font-size="13" class="red-ink">Bank B paid, payee not credited</text>
+<text x="24" y="668" font-size="12" class="muted" font-weight="700">OUTCOME UNDER EACH FAULT</text>
+<text x="326" y="668" font-size="14" text-anchor="middle" font-weight="700">Unified</text>
+<text x="570" y="668" font-size="14" text-anchor="middle" font-weight="700">HTLC</text>
+<text x="814" y="668" font-size="14" text-anchor="middle" font-weight="700">Notary 2PC</text>
+<text x="196" y="705" font-size="13" text-anchor="end" font-weight="600">none</text>
+<rect x="208" y="682" width="236" height="36" rx="8" class="green-box"/>
+<text x="220" y="705" font-size="13"><tspan class="green-ink" font-weight="700">committed</tspan><tspan class="muted"> · in one transaction</tspan></text>
+<rect x="452" y="682" width="236" height="36" rx="8" class="green-box"/>
+<text x="464" y="705" font-size="13"><tspan class="green-ink" font-weight="700">committed</tspan><tspan class="muted"> · claims ~1 s apart</tspan></text>
+<rect x="696" y="682" width="236" height="36" rx="8" class="green-box"/>
+<text x="708" y="705" font-size="13"><tspan class="green-ink" font-weight="700">committed</tspan><tspan class="muted"> · commits ~1 s apart</tspan></text>
+<text x="196" y="747" font-size="13" text-anchor="end" font-weight="600">coordinator crash</text>
+<rect x="208" y="724" width="236" height="36" rx="8" class="green-box"/>
+<text x="220" y="747" font-size="13"><tspan class="green-ink" font-weight="700">committed</tspan><tspan class="muted"> · sent on restart</tspan></text>
+<rect x="452" y="724" width="236" height="36" rx="8" class="panel"/>
+<text x="464" y="747" font-size="13"><tspan class="slate-ink" font-weight="700">aborted</tspan><tspan class="muted"> · both refund</tspan></text>
+<rect x="696" y="724" width="236" height="36" rx="8" class="red-box"/>
+<text x="708" y="747" font-size="13"><tspan class="red-ink" font-weight="700">inconsistent</tspan><tspan class="muted"> · notary crashed</tspan></text>
+<text x="196" y="789" font-size="13" text-anchor="end" font-weight="600">message loss</text>
+<rect x="208" y="766" width="236" height="36" rx="8" class="green-box"/>
+<text x="220" y="789" font-size="13"><tspan class="green-ink" font-weight="700">committed</tspan><tspan class="muted"> · asked again</tspan></text>
+<rect x="452" y="766" width="236" height="36" rx="8" class="panel"/>
+<text x="464" y="789" font-size="13"><tspan class="slate-ink" font-weight="700">aborted</tspan><tspan class="muted"> · Bank A refunds</tspan></text>
+<rect x="696" y="766" width="236" height="36" rx="8" class="green-box"/>
+<text x="708" y="789" font-size="13"><tspan class="green-ink" font-weight="700">committed</tspan><tspan class="muted"> · commit resent</tspan></text>
+<text x="196" y="831" font-size="13" text-anchor="end" font-weight="600">participant offline</text>
+<rect x="208" y="808" width="236" height="36" rx="8" class="panel"/>
+<text x="220" y="831" font-size="13"><tspan class="slate-ink" font-weight="700">aborted</tspan><tspan class="muted"> · no signature in time</tspan></text>
+<rect x="452" y="808" width="236" height="36" rx="8" class="red-box"/>
+<text x="464" y="831" font-size="13"><tspan class="red-ink" font-weight="700">inconsistent</tspan><tspan class="muted"> · Bank B back too late</tspan></text>
+<rect x="696" y="808" width="236" height="36" rx="8" class="panel"/>
+<text x="708" y="831" font-size="13"><tspan class="slate-ink" font-weight="700">aborted</tspan><tspan class="muted"> · Bank B never locked</tspan></text>
+<text x="196" y="873" font-size="13" text-anchor="end" font-weight="600">late commit</text>
+<rect x="208" y="850" width="236" height="36" rx="8" class="panel"/>
+<text x="220" y="873" font-size="13"><tspan class="slate-ink" font-weight="700">aborted</tspan><tspan class="muted"> · refused whole</tspan></text>
+<rect x="452" y="850" width="236" height="36" rx="8" class="red-box"/>
+<text x="464" y="873" font-size="13"><tspan class="red-ink" font-weight="700">inconsistent</tspan><tspan class="muted"> · claim after timeout</tspan></text>
+<rect x="696" y="850" width="236" height="36" rx="8" class="red-box"/>
+<text x="708" y="873" font-size="13"><tspan class="red-ink" font-weight="700">inconsistent</tspan><tspan class="muted"> · commit after timeout</tspan></text>
+<text x="208" y="910" font-size="13"><tspan class="green-ink" font-weight="700">committed</tspan><tspan class="muted">: every part settled · </tspan><tspan font-weight="700">aborted</tspan><tspan class="muted">: nothing moved, ledgers agree · </tspan><tspan class="red-ink" font-weight="700">inconsistent</tspan><tspan class="muted">: one settled, one released</tspan></text>
+<text x="208" y="932" font-size="13" class="muted">Every case is checked on two Besu networks by pnpm interop, and fails the run if it ends otherwise.</text>
+</svg>

@@ -1,0 +1,20 @@
+{
+  "name": "@oul/service-central-bank",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./src/routes.ts"
+  },
+  "scripts": {
+    "start": "node src/main.ts"
+  },
+  "dependencies": {
+    "@oul/domain": "workspace:*",
+    "@oul/participant": "workspace:*",
+    "@oul/service": "workspace:*",
+    "fastify": "^5.12.7",
+    "zod": "^4.6.7"
+  }
+}

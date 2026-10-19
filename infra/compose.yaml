@@ -1,0 +1,21 @@
+name: open-unified-ledger
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: oul
+      POSTGRES_PASSWORD: oul
+      POSTGRES_DB: oul
+    ports:
+      - "55442:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U oul -d oul"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:

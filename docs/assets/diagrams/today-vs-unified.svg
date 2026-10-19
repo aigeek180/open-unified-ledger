@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 572" width="960" height="572" role="img" aria-labelledby="t d">
+<title id="t">Today's interbank payment against the unified ledger</title>
+<desc id="d">Left, today: Bank A sends a pacs.008 over a messaging network, the banks settle in central bank money in the RTGS, each bank posts its customer's account in its own books afterwards, and statements are reconciled at the end of the day. Right, the unified ledger: one instruction with three legs (burn dCAD-A from the payer, move wCAD from Bank A to Bank B, mint dCAD-B to the payee), signed by Bank A and co-signed by Bank B, settles in one final block, and every participant's books post from that block.</desc>
+<style>
+.bg{fill:#ffffff}
+.frame{stroke:#d1d9e0;stroke-width:1}
+text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;fill:#1f2328}
+.mono{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace}
+.muted{fill:#59636e}
+.faint{fill:#818b98}
+.panel{fill:#f6f8fa;stroke:#d1d9e0;stroke-width:1}
+.card{fill:#ffffff;stroke:#d1d9e0;stroke-width:1}
+.rule{stroke:#d1d9e0;stroke-width:1;fill:none}
+.rule-dash{stroke:#d1d9e0;stroke-width:1.5;fill:none;stroke-dasharray:4 4}
+.on-solid{fill:#ffffff}
+.text-fill{fill:#1f2328}
+.muted-line{stroke:#59636e;stroke-width:1.5;fill:none}
+.muted-mark{fill:#59636e}
+.blue-box{fill:#ddf4ff;stroke:#0969da;stroke-width:1.5}
+.blue-soft{fill:#ddf4ff}
+.blue-ink{fill:#0a3069}
+.blue-solid{fill:#0969da}
+.blue-line{stroke:#0969da;stroke-width:1.75;fill:none}
+.blue-dash{stroke:#0969da;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.blue-stroke{fill:#0969da}
+.blue-edge{fill:none;stroke:#0969da;stroke-width:1.5}
+.green-box{fill:#dafbe1;stroke:#1a7f37;stroke-width:1.5}
+.green-soft{fill:#dafbe1}
+.green-ink{fill:#116329}
+.green-solid{fill:#1a7f37}
+.green-line{stroke:#1a7f37;stroke-width:1.75;fill:none}
+.green-dash{stroke:#1a7f37;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.green-stroke{fill:#1a7f37}
+.green-edge{fill:none;stroke:#1a7f37;stroke-width:1.5}
+.amber-box{fill:#fff8c5;stroke:#9a6700;stroke-width:1.5}
+.amber-soft{fill:#fff8c5}
+.amber-ink{fill:#6c3b00}
+.amber-solid{fill:#9a6700}
+.amber-line{stroke:#9a6700;stroke-width:1.75;fill:none}
+.amber-dash{stroke:#9a6700;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.amber-stroke{fill:#9a6700}
+.amber-edge{fill:none;stroke:#9a6700;stroke-width:1.5}
+.violet-box{fill:#fbefff;stroke:#8250df;stroke-width:1.5}
+.violet-soft{fill:#fbefff}
+.violet-ink{fill:#512a97}
+.violet-solid{fill:#8250df}
+.violet-line{stroke:#8250df;stroke-width:1.75;fill:none}
+.violet-dash{stroke:#8250df;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.violet-stroke{fill:#8250df}
+.violet-edge{fill:none;stroke:#8250df;stroke-width:1.5}
+.red-box{fill:#ffebe9;stroke:#cf222e;stroke-width:1.5}
+.red-soft{fill:#ffebe9}
+.red-ink{fill:#82071e}
+.red-solid{fill:#cf222e}
+.red-line{stroke:#cf222e;stroke-width:1.75;fill:none}
+.red-dash{stroke:#cf222e;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.red-stroke{fill:#cf222e}
+.red-edge{fill:none;stroke:#cf222e;stroke-width:1.5}
+.slate-box{fill:#f6f8fa;stroke:#818b98;stroke-width:1.5}
+.slate-soft{fill:#f6f8fa}
+.slate-ink{fill:#1f2328}
+.slate-solid{fill:#59636e}
+.slate-line{stroke:#818b98;stroke-width:1.75;fill:none}
+.slate-dash{stroke:#818b98;stroke-width:1.5;fill:none;stroke-dasharray:5 4}
+.slate-stroke{fill:#818b98}
+.slate-edge{fill:none;stroke:#818b98;stroke-width:1.5}
+</style>
+<defs><marker id="ah-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="blue-stroke"/></marker><marker id="as-blue" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="blue-stroke"/></marker><marker id="ah-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="green-stroke"/></marker><marker id="as-green" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="green-stroke"/></marker><marker id="ah-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="amber-stroke"/></marker><marker id="as-amber" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="amber-stroke"/></marker><marker id="ah-violet" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="violet-stroke"/></marker><marker id="as-violet" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="violet-stroke"/></marker><marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="red-stroke"/></marker><marker id="as-red" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="red-stroke"/></marker><marker id="ah-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="slate-stroke"/></marker><marker id="as-slate" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="slate-stroke"/></marker><marker id="ah-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="muted-mark"/></marker><marker id="as-muted" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M10 0 L0 5 L10 10 z" class="muted-mark"/></marker></defs>
+<rect class="bg frame" x="0.5" y="0.5" width="959" height="571" rx="12"/>
+<text x="24" y="36" font-size="22" font-weight="700">One interbank payment, two ways</text>
+<text x="24" y="60" font-size="14" class="muted">Northwind Freight, a Bank A customer, pays Lakeside Steel, a Bank B customer, $2,500.00</text>
+<rect x="16" y="82" width="456" height="472" rx="12" class="panel"/>
+<text x="36" y="110" font-size="12" class="muted" font-weight="700">TODAY</text>
+<text x="36" y="132" font-size="17" font-weight="600">Message, settle, post, reconcile</text>
+<rect x="488" y="82" width="456" height="472" rx="12" class="panel"/>
+<text x="508" y="110" font-size="12" class="muted" font-weight="700">UNIFIED LEDGER</text>
+<text x="508" y="132" font-size="17" font-weight="600">One instruction, one block, every leg or none</text>
+<rect x="36" y="152" width="150" height="104" rx="10" class="card"/>
+<text x="111" y="177" font-size="15" class="green-ink" text-anchor="middle" font-weight="600">Bank A</text>
+<text x="111" y="196" font-size="13" class="muted" text-anchor="middle">its own core books</text>
+<line x1="48" y1="210" x2="174" y2="210" class="rule"/>
+<circle cx="58" cy="233" r="11" class="slate-solid"/>
+<text x="58" y="237.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">3</text>
+<text x="74" y="238" font-size="13">debits the payer</text>
+<rect x="306" y="152" width="150" height="104" rx="10" class="card"/>
+<text x="381" y="177" font-size="15" class="green-ink" text-anchor="middle" font-weight="600">Bank B</text>
+<text x="381" y="196" font-size="13" class="muted" text-anchor="middle">its own core books</text>
+<line x1="318" y1="210" x2="444" y2="210" class="rule"/>
+<circle cx="328" cy="233" r="11" class="slate-solid"/>
+<text x="328" y="237.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">3</text>
+<text x="344" y="238" font-size="13">credits the payee</text>
+<path d="M190 196 L302 196" class="violet-line" marker-end="url(#ah-violet)"/>
+<rect x="205.28" y="168" width="81.44" height="24" rx="6" class="violet-box"/>
+<text x="246" y="184.68" font-size="13" class="violet-ink mono" text-anchor="middle">pacs.008</text>
+<text x="246" y="218" font-size="13" class="muted" text-anchor="middle">messaging</text>
+<text x="246" y="234" font-size="13" class="muted" text-anchor="middle">network</text>
+<circle cx="246" cy="152" r="11" class="violet-solid"/>
+<text x="246" y="156.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">1</text>
+<rect x="36" y="318" width="420" height="92" rx="10" class="blue-box"/>
+<text x="246" y="343" font-size="15" class="blue-ink" text-anchor="middle" font-weight="600">RTGS · central bank money</text>
+<rect x="56" y="360" width="152.81" height="26" rx="6" class="blue-box"/>
+<text x="132.405" y="377.68" font-size="13" class="blue-ink mono" text-anchor="middle">Bank A  −2,500.00</text>
+<rect x="283.19" y="360" width="152.81" height="26" rx="6" class="blue-box"/>
+<text x="359.595" y="377.68" font-size="13" class="blue-ink mono" text-anchor="middle">Bank B  +2,500.00</text>
+<path d="M111 258 L111 314" class="blue-line" marker-end="url(#ah-blue)"/>
+<path d="M381 314 L381 260" class="blue-line" marker-end="url(#ah-blue)"/>
+<circle cx="160" cy="287" r="11" class="blue-solid"/>
+<text x="160" y="291.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">2</text>
+<text x="178" y="292" font-size="13" class="blue-ink">interbank settlement</text>
+<rect x="36" y="428" width="420" height="84" rx="10" class="card"/>
+<circle cx="58" cy="449" r="11" class="slate-solid"/>
+<text x="58" y="453.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">4</text>
+<text x="76" y="454" font-size="14">End of day: reconcile</text>
+<text x="76" y="478" font-size="13" class="muted">Statements (camt.053) are matched against each</text>
+<text x="76" y="497" font-size="13" class="muted">bank's books; breaks are chased the next day.</text>
+<text x="246" y="536" font-size="14" class="muted" text-anchor="middle" font-weight="600">Three records, updated at different moments</text>
+<rect x="508" y="152" width="416" height="132" rx="10" class="card"/>
+<circle cx="530" cy="174" r="11" class="slate-solid"/>
+<text x="530" y="178.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">1</text>
+<text x="548" y="179" font-size="14"><tspan font-weight="600">Instruction</tspan><tspan class="muted">   id = the payment's UETR</tspan></text>
+<rect x="526" y="193" width="45.2136" height="24" rx="6" class="green-box"/>
+<text x="548.607" y="209.68" font-size="13" class="green-ink" text-anchor="middle" font-weight="600">burn</text>
+<text x="588" y="210" font-size="14"><tspan font-weight="600">2,500.00 </tspan><tspan class="green-ink mono" font-weight="600">dCAD-A</tspan><tspan class="muted">  from Northwind Freight</tspan></text>
+<rect x="526" y="223" width="49.761" height="24" rx="6" class="blue-box"/>
+<text x="550.88" y="239.68" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">move</text>
+<text x="588" y="240" font-size="14"><tspan font-weight="600">2,500.00 </tspan><tspan class="blue-ink mono" font-weight="600">wCAD</tspan><tspan class="muted">  Bank A → Bank B</tspan></text>
+<rect x="526" y="253" width="43.4222" height="24" rx="6" class="green-box"/>
+<text x="547.711" y="269.68" font-size="13" class="green-ink" text-anchor="middle" font-weight="600">mint</text>
+<text x="588" y="270" font-size="14"><tspan font-weight="600">2,500.00 </tspan><tspan class="green-ink mono" font-weight="600">dCAD-B</tspan><tspan class="muted">  to Lakeside Steel</tspan></text>
+<text x="716" y="300" font-size="13" class="muted" text-anchor="middle">Bank A submits · Bank B co-signs the mint of its liability</text>
+<path d="M716 308 L716 330" class="slate-line" marker-end="url(#ah-slate)"/>
+<rect x="508" y="334" width="416" height="64" rx="10" class="slate-box"/>
+<circle cx="530" cy="357" r="11" class="slate-solid"/>
+<text x="530" y="361.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">2</text>
+<text x="548" y="362" font-size="14"><tspan font-weight="600">Block N</tspan><tspan class="muted">   SettlementEngine, Besu QBFT</tspan></text>
+<text x="548" y="384" font-size="13">All three legs in one transaction, or none. Final at commit.</text>
+<path d="M716 398 L716 424" class="slate-line" marker-end="url(#ah-slate)"/>
+<rect x="508" y="428" width="416" height="84" rx="10" class="card"/>
+<circle cx="530" cy="449" r="11" class="slate-solid"/>
+<text x="530" y="453.5" font-size="13" class="on-solid" text-anchor="middle" font-weight="700">3</text>
+<text x="548" y="454" font-size="14">Books post from block N, then reconcile to it</text>
+<rect x="522" y="466" width="121" height="34" rx="8" class="green-box"/>
+<text x="582.5" y="488" font-size="13" class="green-ink" text-anchor="middle" font-weight="600">Bank A</text>
+<rect x="655" y="466" width="121" height="34" rx="8" class="blue-box"/>
+<text x="715.5" y="488" font-size="13" class="blue-ink" text-anchor="middle" font-weight="600">Central Bank</text>
+<rect x="788" y="466" width="121" height="34" rx="8" class="green-box"/>
+<text x="848.5" y="488" font-size="13" class="green-ink" text-anchor="middle" font-weight="600">Bank B</text>
+<text x="716" y="536" font-size="14" class="green-ink" text-anchor="middle" font-weight="600">One record, one moment, proven every block</text>
+</svg>

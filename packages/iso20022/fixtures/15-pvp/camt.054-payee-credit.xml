@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:camt.054.001.08">
+  <BkToCstmrDbtCdtNtfctn>
+    <GrpHdr>
+      <MsgId>OUL054-dd9bcb1e9a670d01f9deaff52388</MsgId>
+      <CreDtTm>2026-11-02T18:00:06Z</CreDtTm>
+    </GrpHdr>
+    <Ntfctn>
+      <Id>N054-dd9bcb1e9a670d01f9deaff5238823</Id>
+      <CreDtTm>2026-11-02T18:00:06Z</CreDtTm>
+      <Acct>
+        <Id>
+          <Othr>
+            <Id>tok/mesa-solar</Id>
+            <SchmeNm>
+              <Prtry>OUL</Prtry>
+            </SchmeNm>
+          </Othr>
+        </Id>
+        <Ccy>USD</Ccy>
+        <Prxy>
+          <Tp>
+            <Prtry>EVM</Prtry>
+          </Tp>
+          <Id>0x1A553E13a469A05642084335474343804E583780</Id>
+        </Prxy>
+        <Ownr>
+          <Nm>Mesa Solar</Nm>
+        </Ownr>
+        <Svcr>
+          <FinInstnId>
+            <ClrSysMmbId>
+              <ClrSysId>
+                <Prtry>OUL</Prtry>
+              </ClrSysId>
+              <MmbId>bank-b</MmbId>
+            </ClrSysMmbId>
+            <Nm>Bank B</Nm>
+          </FinInstnId>
+        </Svcr>
+      </Acct>
+      <Ntry>
+        <NtryRef>instruction:a1b2c3d4-e5f6-4a7b-8c9d</NtryRef>
+        <Amt Ccy="USD">1828.75</Amt>
+        <CdtDbtInd>CRDT</CdtDbtInd>
+        <Sts>
+          <Cd>BOOK</Cd>
+        </Sts>
+        <BookgDt>
+          <DtTm>2026-11-02T18:00:04Z</DtTm>
+        </BookgDt>
+        <ValDt>
+          <Dt>2026-11-02</Dt>
+        </ValDt>
+        <AcctSvcrRef>block-72</AcctSvcrRef>
+        <BkTxCd>
+          <Prtry>
+            <Cd>PVP</Cd>
+            <Issr>OUL</Issr>
+          </Prtry>
+        </BkTxCd>
+        <NtryDtls>
+          <TxDtls>
+            <Refs>
+              <EndToEndId>a1b2c3d4e5f64a7b8c9d0e1f2a3b4c5d</EndToEndId>
+              <UETR>a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d</UETR>
+            </Refs>
+            <Amt Ccy="USD">1828.75</Amt>
+            <CdtDbtInd>CRDT</CdtDbtInd>
+          </TxDtls>
+        </NtryDtls>
+        <AddtlNtryInf>From Northwind Freight at Bank A, CAD 2500.00 at 0.7315</AddtlNtryInf>
+      </Ntry>
+    </Ntfctn>
+  </BkToCstmrDbtCdtNtfctn>
+</Document>
